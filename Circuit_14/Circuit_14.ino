@@ -314,7 +314,7 @@ void marquee()
   
   for(index = 0; index <= 3; index++)
   {
-    shiftWrite(index, HIGH);    // Turn a LED on
+    shiftWrite(index, HIGH);    // Turn an LED on
     shiftWrite(index+4, HIGH);  // Skip four, and turn that LED on
     delay(delayTime);		// Pause to slow down the sequence
     shiftWrite(index, LOW);	// Turn both LEDs off
