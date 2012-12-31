@@ -110,7 +110,7 @@ int ledPin = 13;      // The LED is connected to digital pin 13
 
 void setup() // this function runs once when the sketch starts up
 {
-  // We'll be using pin 13 to light a LED, so we must configure it
+  // We'll be using pin 13 to light an LED, so we must configure it
   // as an output.
  
   // Because we already created a variable called ledPin, and

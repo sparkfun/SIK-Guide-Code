@@ -2,7 +2,7 @@
 SparkFun Inventor's Kit
 Example sketch 01
 
-BLINKING A LED
+BLINKING AN LED
 
   Turn an LED on for one second, off for one second,
   and repeat forever.
@@ -84,7 +84,7 @@ void setup()
   // the parenthesis after the function name. The first value is
   // a pin number, the second value is the word INPUT or OUTPUT.
   
-  // Here we'll set up pin 13 (the one connected to a LED) to be
+  // Here we'll set up pin 13 (the one connected to an LED) to be
   // an output. We're doing this because we need to send voltage
   // "out" of the Arduino to the LED.
 

@@ -5,7 +5,7 @@ Example sketch 06
 PHOTO RESISTOR
 
   Use a photoresistor (light sensor) to control the brightness
-  of a LED.
+  of an LED.
 
 Hardware connections:
 
