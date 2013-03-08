@@ -12,18 +12,13 @@ Getting Started
 ---------------
 
 1. If you haven't yet, download and install the [Arduino IDE](http://arduino.cc/en/Main/Software)
-
 2. Obtain the latest SIK Guide Code by one of the following methods:
  * Clone this repository using Git ([New to Git? Click here.](https://help.github.com/articles/set-up-git))
  * Download this repository as a [zip file](https://github.com/sparkfun/SIK-Guide-Code/archive/master.zip) and unzip.
-
 3. Place the `SIK-Guide-Code` folder in the Arduino IDE `examples` directory:
  * PC: drag the `SIK-Guide-Code` folder into `C:\program files\Arduino-x\examples`
-
  * MAC: drag the `SIK-Guide-Code` folder into `Arduino-x/Contents/Resource/Java/examples`
-
  * Linux: see [http://www.arduino.cc/playground/Learning/Linux](http://www.arduino.cc/playground/Learning/Linux)
-
 4. Start the Arduino IDE; the examples should be visible in this menu: `File > Examples > SIK Guide Code`
 
 Sketch Topics
