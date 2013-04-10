@@ -18,15 +18,15 @@ Hardware connections:
     Connect the positive side of your LED (longer leg) to Arduino
     digital pin 13 (or another digital pin, don't forget to change
     the code to match).
-  
-    Connect the negative side of your LED (shorter leg) to a 
+
+    Connect the negative side of your LED (shorter leg) to a
     330 Ohm resistor (orange-orange-brown). Connect the other side
     of the resistor to ground.
 
     pin 13 _____ + LED - _____ 330 Ohm _____ GND
-	
-    (We always use resistors between the Arduino and and LEDs
-    to keep the LEDs from burning out due to too much current.)
+
+    (We always use resistors between the Arduino and LEDs to
+    keep the LEDs from burning out due to too much current.)
 
 This sketch was written by SparkFun Electronics,
 with lots of help from the Arduino community.
@@ -83,8 +83,13 @@ void setup()
   // The pinMode() function takes two values, which you type in
   // the parenthesis after the function name. The first value is
   // a pin number, the second value is the word INPUT or OUTPUT.
+<<<<<<< HEAD
   
   // Here we'll set up pin 13 (the one connected to an LED) to be
+=======
+
+  // Here we'll set up pin 13 (the one connected to an LED) to be
+>>>>>>> 46e3399a3b82904cf1fb2d37d2a7729f64e07e8c
   // an output. We're doing this because we need to send voltage
   // "out" of the Arduino to the LED.
 
@@ -122,11 +127,11 @@ void loop()
   // It takes one value, the amount of time to wait, measured in
   // milliseconds. There are 1000 milliseconds in a second, so if
   // you delay(1000), it will pause for exactly one second:
-  
+
   delay(1000);              // Wait for one second
-  
+
   digitalWrite(13, LOW);    // Turn off the LED
-  
+
   delay(1000);              // Wait for one second
 
   // All together, the above code turns the LED on, waits one
