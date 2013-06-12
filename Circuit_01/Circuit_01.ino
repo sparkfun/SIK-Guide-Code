@@ -83,13 +83,8 @@ void setup()
   // The pinMode() function takes two values, which you type in
   // the parenthesis after the function name. The first value is
   // a pin number, the second value is the word INPUT or OUTPUT.
-<<<<<<< HEAD
-  
-  // Here we'll set up pin 13 (the one connected to an LED) to be
-=======
 
   // Here we'll set up pin 13 (the one connected to an LED) to be
->>>>>>> 46e3399a3b82904cf1fb2d37d2a7729f64e07e8c
   // an output. We're doing this because we need to send voltage
   // "out" of the Arduino to the LED.
 
