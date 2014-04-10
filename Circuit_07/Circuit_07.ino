@@ -59,7 +59,7 @@ void setup()
   
   // The speed is measured in bits per second, also known as
   // "baud rate". 9600 is a very commonly used baud rate,
-  // and will transfer about 100 characters per second.
+  // and will transfer about 1000 characters per second.
   
   Serial.begin(9600);
 }
