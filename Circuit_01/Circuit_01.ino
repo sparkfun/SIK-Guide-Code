@@ -45,7 +45,7 @@ Version 2.0 6/2012 MDG
 
 // The Arduino is a tiny computer that runs programs called
 // "sketches". These are text files written using instructions
-// the computer understances. You're reading a sketch right now.
+// the computer understands. You're reading a sketch right now.
 
 // Sketches have computer code in them, but also (hopefully)
 // "comments" that explain what the code does. Comments and code
