@@ -51,7 +51,7 @@ const int BLUE_PIN = 11;
 // This variable controls how fast we loop through the colors.
 // (Try changing this to make the fading faster or slower.)
 
-int DISPLAY_TIME = 100;  // In milliseconds
+int DISPLAY_TIME = 10;  // In milliseconds. Delay for 10 ms (1/100th of a second)
 
 
 void setup()
@@ -247,7 +247,7 @@ void showSpectrum()
 
   {
     showRGB(x);  // Call RGBspectrum() with our new x
-    delay(10);   // Delay for 10 ms (1/100th of a second)
+    delay(DISPLAY_TIME);   
   }
 }
 
