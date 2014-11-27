@@ -15,35 +15,35 @@ SHIFT REGISTER
 
   The 74HC595 shift register in your kit is an IC that has eight
   digital outputs. To use these outputs, we'll use a new interface
-  called SPI (Serial Peripheral Interface). It's like the TX and 
-  RX you're used to, but has an additional "clock" line that 
+  called SPI (Serial Peripheral Interface). It's like the TX and
+  RX you're used to, but has an additional "clock" line that
   controls the speed of the data transfer. Many parts use SPI
   for communications, so the Arduino offers simple commands called
   shiftIn() and shiftOut() to access these parts.
 
   This IC lets you use three digital pins on your Arduino to
-  control eight digital outputs on the chip. And if you need 
+  control eight digital outputs on the chip. And if you need
   even more outputs, you can daisy-chain multiple shift registers
-  together, allowing an almost unlimited number of outputs from 
+  together, allowing an almost unlimited number of outputs from
   the same three Arduino pins! See the shift register datasheet
   for details:
-  
+
   http://www.sparkfun.com/datasheets/IC/SN74HC595.pdf
 
 Hardware connections:
 
   Shift register:
-  
+
     Plug in the chip so it bridges the center "canyon"
     on the breadboard.
-    
+
     The shift register has 16 pins. They are numbered
     counterclockwise starting at the pin 1 mark (notch
     in the end of the chip). See the datasheet above
     for a diagram.
 
     74HC595 pin		LED pin		Arduino pin
-    
+
     1  (QB)		LED 2 +
     2  (QC)		LED 3 +
     3  (QD)		LED 4 +
@@ -52,7 +52,7 @@ Hardware connections:
     6  (QG)		LED 7 +
     7  (QH)		LED 8 +
     8  (GND)				GND
-    
+
     9  (QH*)
     10 (SRCLR*)				5V
     11 (SRCLK)				Digital 3
@@ -61,14 +61,14 @@ Hardware connections:
     14 (SER)				Digital 2
     15 (QA)		LED 1 +
     16 (VCC)				5V
-  
+
   LEDs:
-  
+
     After making the above connections to the positive (longer)
     legs of the LEDs, connect the negative side (short lead) of
     each LED to a 330 Ohm resistor, and connect the other side
     of each resistor to GND.
-  
+
 This sketch was written by SparkFun Electronics,
 with lots of help from the Arduino community.
 This code is completely free for any use.
@@ -83,7 +83,7 @@ Version 2.0 6/2012 MDG
 // The 74HC595 uses a type of serial connection called SPI
 // (Serial Peripheral Interface) that requires three pins:
 
-int datapin = 2; 
+int datapin = 2;
 int clockpin = 3;
 int latchpin = 4;
 
@@ -98,7 +98,7 @@ void setup()
   // Set the three SPI pins to be outputs:
 
   pinMode(datapin, OUTPUT);
-  pinMode(clockpin, OUTPUT);  
+  pinMode(clockpin, OUTPUT);
   pinMode(latchpin, OUTPUT);
 }
 
@@ -114,15 +114,15 @@ void loop()
   // To try the different functions below, uncomment the one
   // you want to run, and comment out the remaining ones to
   // disable them from running.
-  
+
   oneAfterAnother();      // All on, all off
-  
+
   //oneOnAtATime();       // Scroll down the line
-  
+
   //pingPong();           // Like above, but back and forth
 
   //randomLED();          // Blink random LEDs
-  
+
   //marquee();
 
   //binaryCount();        // Bit patterns from 0 to 255
@@ -157,7 +157,7 @@ void shiftWrite(int desiredPin, boolean desiredState)
   // desired bit to 1 or 0:
 
   bitWrite(data,desiredPin,desiredState);
-  
+
   // Now we'll actually send that data to the shift register.
   // The shiftOut() function does all the hard work of
   // manipulating the data and clock pins to move the data
@@ -191,15 +191,15 @@ void oneAfterAnother()
                        // Make this smaller for faster switching
 
   // Turn all the LEDs on:
- 
+
   // This for() loop will step index from 0 to 7
   // (putting "++" after a variable means add one to it)
   // and will then use digitalWrite() to turn that LED on.
-  
+
   for(index = 0; index <= 7; index++)
   {
     shiftWrite(index, HIGH);
-    delay(delayTime);                
+    delay(delayTime);
   }
 
   // Turn all the LEDs off:
@@ -207,7 +207,7 @@ void oneAfterAnother()
   // This for() loop will step index from 7 to 0
   // (putting "--" after a variable means subtract one from it)
   // and will then use digitalWrite() to turn that LED off.
- 
+
   for(index = 7; index >= 0; index--)
   {
     shiftWrite(index, LOW);
@@ -215,7 +215,7 @@ void oneAfterAnother()
   }
 }
 
- 
+
 /*
 oneOnAtATime()
 
@@ -227,9 +227,9 @@ void oneOnAtATime()
   int index;
   int delayTime = 100; // Time (milliseconds) to pause between LEDs
                        // Make this smaller for faster switching
-  
+
   // step through the LEDs, from 0 to 7
-  
+
   for(index = 0; index <= 7; index++)
   {
     shiftWrite(index, HIGH);	// turn LED on
@@ -238,7 +238,7 @@ void oneOnAtATime()
   }
 }
 
- 
+
 /*
 pingPong()
 
@@ -251,9 +251,9 @@ void pingPong()
   int index;
   int delayTime = 100; // time (milliseconds) to pause between LEDs
                        // make this smaller for faster switching
-  
+
   // step through the LEDs, from 0 to 7
-  
+
   for(index = 0; index <= 7; index++)
   {
     shiftWrite(index, HIGH);	// turn LED on
@@ -262,7 +262,7 @@ void pingPong()
   }
 
   // step through the LEDs, from 7 to 0
-  
+
   for(index = 7; index >= 0; index--)
   {
     shiftWrite(index, HIGH);	// turn LED on
@@ -284,13 +284,13 @@ void randomLED()
   int index;
   int delayTime = 100; // time (milliseconds) to pause between LEDs
                        // make this smaller for faster switching
-  
+
   // The random() function will return a semi-random number each
   // time it is called. See http://arduino.cc/en/Reference/Random
   // for tips on how to make random() more random.
-  
+
   index = random(8);	// pick a random number between 0 and 7
-  
+
   shiftWrite(index, HIGH);	// turn LED on
   delay(delayTime);		// pause to slow down the sequence
   shiftWrite(index, LOW);	// turn LED off
@@ -308,10 +308,10 @@ void marquee()
   int index;
   int delayTime = 200; // Time (milliseconds) to pause between LEDs
                        // Make this smaller for faster switching
-  
+
   // Step through the first four LEDs
   // (We'll light up one in the lower 4 and one in the upper 4)
-  
+
   for(index = 0; index <= 3; index++)
   {
     shiftWrite(index, HIGH);    // Turn an LED on
@@ -328,7 +328,7 @@ binaryCount()
 
 Numbers are stored internally in the Arduino as arrays of "bits",
 each of which is a 1 or 0. Just like the base-10 numbers we use
-every day, The position of the bit affects the magnitude of its 
+every day, The position of the bit affects the magnitude of its
 contribution to the total number:
 
 Bit position   Contribution
@@ -356,7 +356,7 @@ void binaryCount()
 {
   int delayTime = 1000; // time (milliseconds) to pause between LEDs
                         // make this smaller for faster switching
-  
+
   // Send the data byte to the shift register:
 
   shiftOut(datapin, clockpin, MSBFIRST, data);
@@ -365,7 +365,7 @@ void binaryCount()
 
   digitalWrite(latchpin, HIGH);
   digitalWrite(latchpin, LOW);
-  
+
   // Add one to data, and repeat!
   // (Because a byte type can only store numbers from 0 to 255,
   // if we add more than that, it will "roll around" back to 0

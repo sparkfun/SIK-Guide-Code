@@ -36,25 +36,25 @@ SPINNING A MOTOR
 Hardware connections:
 
   Transistor:
-  
+
     The transistor has three pins. Looking at the flat side with the
     pins down, the order is COLLECTOR, BASE, EMITTER.
-    
+
     Connect the black wire on the motor to the
     COLLECTOR pin on the transistor.
 
     Connect the BASE pin through a 330 Ohm resistor to
     digital pin 9.
-    
+
     Connect the EMITTER pin to GND.
- 
+
   Motor:
 
     You've already connected the black wire on the motor to the
     COLLECTOR pin on the transistor.
-    
+
     Connect the other (red) wire on the motor to 5V.
-  
+
   Flyback diode:
 
     When the motor is spinning and suddenly turned off, the
@@ -115,7 +115,7 @@ void motorOnThenOff()
 {
   int onTime = 3000;  // milliseconds to turn the motor on
   int offTime = 3000; // milliseconds to turn the motor off
-  
+
   digitalWrite(motorPin, HIGH); // turn the motor on (full speed)
   delay(onTime);                // delay for onTime milliseconds
   digitalWrite(motorPin, LOW);  // turn the motor off
@@ -130,10 +130,10 @@ void motorOnThenOffWithSpeed()
 {
   int Speed1 = 200;  // between 0 (stopped) and 255 (full speed)
   int Time1 = 3000;  // milliseconds for speed 1
-  
+
   int Speed2 = 50;   // between 0 (stopped) and 255 (full speed)
   int Time2 = 3000;  // milliseconds to turn the motor off
-  
+
   analogWrite(motorPin, Speed1);  // turns the motor On
   delay(Time1);                   // delay for onTime milliseconds
   analogWrite(motorPin, Speed2);  // turns the motor Off
@@ -148,7 +148,7 @@ void motorAcceleration()
 {
   int speed;
   int delayTime = 20; // milliseconds between each speed step
-  
+
   // accelerate the motor
 
   for(speed = 0; speed <= 255; speed++)
@@ -156,7 +156,7 @@ void motorAcceleration()
     analogWrite(motorPin,speed);	// set the new speed
     delay(delayTime);           	// delay between speed steps
   }
-  
+
   // decelerate the motor
 
   for(speed = 255; speed >= 0; speed--)
@@ -177,7 +177,7 @@ void motorAcceleration()
 void serialSpeed()
 {
   int speed;
-  
+
   Serial.println("Type a speed (0-255) into the box above,");
   Serial.println("then click [send] or press [return]");
   Serial.println();  // Print a blank line
@@ -188,26 +188,26 @@ void serialSpeed()
   while(true)  // "true" is always true, so this will loop forever.
   {
     // First we check to see if incoming data is available:
-  
+
     while (Serial.available() > 0)
     {
       // If it is, we'll use parseInt() to pull out any numbers:
-      
+
       speed = Serial.parseInt();
-  
+
       // Because analogWrite() only works with numbers from
       // 0 to 255, we'll be sure the input is in that range:
-  
+
       speed = constrain(speed, 0, 255);
-      
+
       // We'll print out a message to let you know that the
       // number was received:
-      
+
       Serial.print("Setting speed to ");
       Serial.println(speed);
-  
+
       // And finally, we'll set the speed of the motor!
-      
+
       analogWrite(motorPin, speed);
     }
   }

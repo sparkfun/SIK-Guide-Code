@@ -6,7 +6,7 @@ SINGLE SERVO
 
   Sweep a servo back and forth through its full range of motion.
 
-  A "servo", short for servomotor, is a motor that includes 
+  A "servo", short for servomotor, is a motor that includes
   feedback circuitry that allows it to be commanded to move to
   specific positions. This one is very small, but larger servos
   are used extensively in robotics to control mechanical arms,
@@ -20,7 +20,7 @@ Hardware connections:
   Because the cable ends in a socket, you can use jumper wires
   to connect between the Arduino and the servo. Just plug the
   jumper wires directly into the socket.
-  
+
   Connect the RED wire (power) to 5 Volts (5V)
   Connect the WHITE wire (signal) to digital pin 9
   Connect the BLACK wire (ground) to ground (GND)
@@ -62,8 +62,8 @@ Version 2.0 6/2012 MDG
 // the "file/examples" menu.
 
 // Now we'll create a servo "object", called myservo. You should
-// create one of these for each servo you want to control. 
-// You can control a maximum of twelve servos on the Uno 
+// create one of these for each servo you want to control.
+// You can control a maximum of twelve servos on the Uno
 // using this library. (Other servo libraries may let you
 // control more). Note that this library disables PWM on
 // pins 9 and 10!
@@ -80,7 +80,7 @@ void setup()
   // Attach tells the Arduino to begin sending control signals
   // to the servo. Servos require a continuous stream of control
   // signals, even if you're not currently moving them.
-  // While the servo is being controlled, it will hold its 
+  // While the servo is being controlled, it will hold its
   // current position with some force. If you ever want to
   // release the servo (allowing it to be turned by hand),
   // you can call servo1.detach().
@@ -92,7 +92,7 @@ void setup()
 void loop()
 {
   int position;
-  
+
   // To control a servo, you give it the angle you'd like it
   // to turn to. Servos cannot turn a full 360 degrees, but you
   // can tell it to move anywhere between 0 and 180 degrees.
@@ -110,18 +110,18 @@ void loop()
   servo1.write(0);     // Tell servo to go to 0 degrees
 
   delay(1000);         // Pause to get it time to move
-  
+
   // Change position at a slower speed:
 
   // To slow down the servo's motion, we'll use a for() loop
   // to give it a bunch of intermediate positions, with 20ms
-  // delays between them. You can change the step size to make 
+  // delays between them. You can change the step size to make
   // the servo slow down or speed up. Note that the servo can't
   // move faster than its full speed, and you won't be able
   // to update it any faster than every 20ms.
 
   // Tell servo to go to 180 degrees, stepping by two degrees
- 
+
   for(position = 0; position < 180; position += 2)
   {
     servo1.write(position);  // Move to next position
@@ -131,7 +131,7 @@ void loop()
   // Tell servo to go to 0 degrees, stepping by one degree
 
   for(position = 180; position >= 0; position -= 1)
-  {                                
+  {
     servo1.write(position);  // Move to next position
     delay(20);               // Short pause to allow it to move
   }

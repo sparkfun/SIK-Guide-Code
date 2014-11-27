@@ -5,16 +5,16 @@ Example sketch 03
 RGB LED
 
   Make an RGB LED display a rainbow of colors!
-  
+
 Hardware connections:
 
   An RGB LED is actually three LEDs (red, green, and blue) in
   one package. When you run them at different brightnesses,
   the red, green and blue mix to form new colors.
-  
+
   Starting at the flattened edge of the flange on the LED,
   the pins are ordered RED, COMMON, GREEN, BLUE.
-  
+
   Connect RED to a 330 Ohm resistor. Connect the other end
   of the resistor to Arduino digital pin 9.
 
@@ -77,22 +77,22 @@ void loop()
   // The first way is to turn the individual LEDs (red, blue,
   // and green) on and off in various combinations. This gives you
   // a total of eight colors (if you count "black" as a color).
-	
+
   // We've written a function called mainColors() that steps
   // through all eight of these colors. We're only "calling" the
   // function here (telling it to run). The actual function code
   // is further down in the sketch.
 
   mainColors();
-  
+
   // The above function turns the individual LEDs full-on and
   // full-off. If you want to generate more than eight colors,
   // you can do so by varying the brightness of the individual
   // LEDs between full-on and full-off.
-  
+
   // The analogWrite() function lets us do this. This function
   // lets you dim an LED from full-off to full-on over 255 steps.
-  
+
   // We've written a function called showSpectrum() that smoothly
   // steps through all the colors. Again we're just calling it
   // here; the actual code is further down in this sketch.
@@ -104,7 +104,7 @@ void loop()
 // Here's the mainColors() function we've written.
 
 // This function displays the eight "main" colors that the RGB LED
-// can produce. If you'd like to use one of these colors in your 
+// can produce. If you'd like to use one of these colors in your
 // own sketch, you cancopy and paste that section into your code.
 
 void mainColors()
@@ -234,7 +234,7 @@ void mainColors()
 void showSpectrum()
 {
   int x;  // define an integer variable called "x"
-  
+
   // Now we'll use a for() loop to make x count from 0 to 767
   // (Note that there's no semicolon after this line!
   // That's because the for() loop will repeat the next
