@@ -7,13 +7,13 @@ SOFT POTENTIOMETER
   Use the soft potentiometer to change the color
   of the RGB LED
 
-  The soft potentiometer is a neat input device that detects 
+  The soft potentiometer is a neat input device that detects
   pressure along its length. When you press it down with a finger
   (it works best on a flat surface), it will change resistance
   depending on where you're pressing it. You might use it to make
   a piano or light dimmer; here we're going to use it to control
   the color of an RGB LED.
-  
+
 Hardware connections:
 
   Soft potentiometer:
@@ -38,18 +38,18 @@ Hardware connections:
     An RGB LED is actually three LEDs (red, green, and blue)
     in one package. When we run them at different brightnesses,
     they mix to form new colors.
-    
+
     Starting at the flattened edge of the flange on the LED,
     the pins are ordered RED, COMMON, GREEN, BLUE.
-    
+
     Connect RED to a 330 Ohm resistor.
     Connect the other end of the resistor to Arduino digital pin 9.
-  
+
     Connect COMMON to GND.
-  
+
     Connect GREEN through a 330 Ohm resistor.
     Connect the other end of the resistor to Arduino digital pin 10.
-  
+
     Connect BLUE through a 330 Ohm resistor.
     Connect the other end of the resistor to Arduino digital pin 11.
 
@@ -91,13 +91,13 @@ void loop()
   int sensorValue;
 
   // Read the voltage from the softpot (0-1023)
-  
+
   sensorValue = analogRead(0);
 
   // We've written a new function called setRGB() (further down
   // in the sketch) that decodes sensorValue into a position
   // on the RGB "rainbow", and sets the RGB LED to that color.
- 
+
   setRGB(sensorValue);
 }
 
@@ -110,18 +110,18 @@ void loop()
 void setRGB(int RGBposition)
 {
   int mapRGB1, mapRGB2, constrained1, constrained2;
-  
+
   // Here we take RGBposition and turn it into three RGB values.
 
-  // The three values are computed so that the colors mix and 
+  // The three values are computed so that the colors mix and
   // produce a rainbow of colors across the 0-1023 input range.
-  
+
   // For each channel (red green blue), we're creating a "peak"
   // a third of the way along the 0-1023 range. By overlapping
   // these peaks with each other, the colors are mixed together.
   // This is most easily shown with a diagram:
   // http://sfecdn.s3.amazonaws.com/education/SIK/SchematicImages/Misc/RGB_function.jpg
-  
+
   // Create the red peak, which is centered at 0.
   // (Because it's centered at 0, half is after 0, and half
   // is before 1023):
@@ -140,13 +140,13 @@ void setRGB(int RGBposition)
   // Note that we've nested the functions by putting the map()
   // function inside the constrain() function. This can make your
   // code more compact, and requires fewer variabls:
-  
+
   greenValue = constrain(map(RGBposition, 0, 341, 0, 255), 0, 255)
              - constrain(map(RGBposition, 341, 682, 0,255), 0, 255);
 
   // Create the blue peak, which is centered at 682
   // (two-thirds of the way to 1023):
-              
+
   blueValue = constrain(map(RGBposition, 341, 682, 0, 255), 0, 255)
             - constrain(map(RGBposition, 682, 1023, 0, 255), 0, 255);
 

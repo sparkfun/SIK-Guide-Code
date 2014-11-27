@@ -8,11 +8,11 @@ BUZZER
 
   The buzzer in your Inventor's Kit is an electromechanical
   component you can use to make noise. Inside the buzzer is a
-  coil of wire and a small magnet. When current flows through 
+  coil of wire and a small magnet. When current flows through
   the coil, it becomes magnetized and pulls towards the magnet,
   creating a tiny "click". When you do this thousands of times
   per second, you create tones.
-  
+
   The Arduino has a built-in command called tone() which clicks
   the buzzer at a certain frequency. This sketch knows the
   frequencies of the common notes, allowing you to create songs.
@@ -23,11 +23,11 @@ Hardware connections:
   The buzzer has two pins. One is positive and one is negative.
   The postitive pin is marked by a "+" symbol on both the top
   and bottom of the buzzer.
-  
+
   Connect the positive pin to Arduino digital pin 9.
   (Note that this must be a PWM pin.)
   Connect the negative pin to GND.
-  
+
   Tip: if the buzzer doesn't fit into the breadboard easily,
   try rotating it slightly to fit into diagonal holes.
 
@@ -59,13 +59,13 @@ and returns the corresponding frequency from this table:
 
 For more information, see http://arduino.cc/en/Tutorial/Tone
 */
-  
+
 const int buzzerPin = 9;
 
 // We'll set up an array with the notes we want to play
 // change these values to make different songs!
 
-// Length must equal the total number of notes and spaces 
+// Length must equal the total number of notes and spaces
 
 const int songLength = 18;
 
@@ -86,21 +86,21 @@ int beats[] = {1,1,1,1,1,1,4,4,2,1,1,1,1,1,1,4,4,2};
 int tempo = 150;
 
 
-void setup() 
+void setup()
 {
   pinMode(buzzerPin, OUTPUT);
 }
 
 
-void loop() 
+void loop()
 {
   int i, duration;
-  
+
   for (i = 0; i < songLength; i++) // step through the song arrays
   {
     duration = beats[i] * tempo;  // length of note/rest in ms
-    
-    if (notes[i] == ' ')          // is this a rest? 
+
+    if (notes[i] == ' ')          // is this a rest?
     {
       delay(duration);            // then pause for a moment
     }
@@ -111,7 +111,7 @@ void loop()
     }
     delay(tempo/10);              // brief pause between notes
   }
-  
+
   // We only want to play the song once, so we'll pause forever:
   while(true){}
   // If you'd like your song to play over and over,
@@ -119,14 +119,14 @@ void loop()
 }
 
 
-int frequency(char note) 
+int frequency(char note)
 {
   // This function takes a note character (a-g), and returns the
   // corresponding frequency in Hz for the tone() function.
-  
+
   int i;
   const int numNotes = 8;  // number of notes we're storing
-  
+
   // The following arrays hold the note characters and their
   // corresponding frequencies. The last "C" note is uppercase
   // to separate it from the first lowercase "c". If you want to
@@ -137,10 +137,10 @@ int frequency(char note)
 
   char names[] = { 'c', 'd', 'e', 'f', 'g', 'a', 'b', 'C' };
   int frequencies[] = {262, 294, 330, 349, 392, 440, 494, 523};
-  
+
   // Now we'll search through the letters in the array, and if
   // we find it, we'll return the frequency for that note.
-  
+
   for (i = 0; i < numNotes; i++)  // Step through the notes
   {
     if (names[i] == note)         // Is this the one?

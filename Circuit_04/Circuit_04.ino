@@ -10,12 +10,12 @@ Hardware connections:
 
   You'll need eight LEDs, and eight 330 Ohm resistors
   (orange-orange-brown).
-	
+
     For each LED, connect the negative side (shorter leg)
     to a 330 Ohm resistor.
-  
+
     Connect the other side of the resistors to GND.
-  
+
     Connect the positive side (longer leg) of the LEDs
     to Arduino digital pins 2 through 9.
 
@@ -27,7 +27,7 @@ Visit http://www.arduino.cc to learn about the Arduino.
 
 Version 2.0 6/2012 MDG
 */
- 
+
 
 // To keep track of all the LED pins, we'll use an "array".
 // An array lets you store a group of variables, and refer to them
@@ -42,16 +42,16 @@ int ledPins[] = {2,3,4,5,6,7,8,9};
 // the value "9".
 
 // We're using the values in this array to specify the pin numbers
-// that the eight LEDs are connected to. LED 0 is connected to 
+// that the eight LEDs are connected to. LED 0 is connected to
 // pin 2, LED 1 is connected to pin 3, etc.
 
 
 void setup()
 {
   int index;
-  
+
   // In this sketch, we'll use "for() loops" to step variables from
-  // one value to another, and perform a set of instructions for 
+  // one value to another, and perform a set of instructions for
   // each step. For() loops are a very handy way to get numbers to
   // count up or down.
 
@@ -63,7 +63,7 @@ void setup()
   //   3. Something to do after each loop (increase a variable)
 
   // For the for() loop below, these are the three statements:
-  
+
   //   1. index = 0;    Before starting, make index = 0.
   //   2. index <= 7;   If index is less or equal to 7,
   //                    run the following code.
@@ -71,10 +71,10 @@ void setup()
   //   3. index++	Putting "++" after a variable means
   //                    "add one to it".
   //			(You can also use "index = index + 1".)
-  
+
   // Every time you go through the loop, the statements following
   // the for() (within the brackets) will run.
-  
+
   // When the test in statement 2 is finally false, the sketch
   // will continue.
 
@@ -106,13 +106,13 @@ void loop()
   // lines.
 
   oneAfterAnotherNoLoop();  // Light up all the LEDs in turn
-  
+
   //oneAfterAnotherLoop();  // Same as oneAfterAnotherNoLoop,
                             // but with much less typing
-  
+
   //oneOnAtATime();         // Turn on one LED at a time,
                             // scrolling down the line
-  
+
   //pingPong();             // Light the LEDs middle to the edges
 
   //marquee();              // Chase lights like you see on signs
@@ -120,7 +120,7 @@ void loop()
   //randomLED();            // Blink LEDs randomly
 }
 
- 
+
 /*
 oneAfterAnotherNoLoop()
 
@@ -156,10 +156,10 @@ void oneAfterAnotherNoLoop()
   digitalWrite(ledPins[6], HIGH);  //Turns on LED #6 (pin 8)
   delay(delayTime);                //wait delayTime milliseconds
   digitalWrite(ledPins[7], HIGH);  //Turns on LED #7 (pin 9)
-  delay(delayTime);                //wait delayTime milliseconds  
- 
+  delay(delayTime);                //wait delayTime milliseconds
+
   // turn all the LEDs off:
-  
+
   digitalWrite(ledPins[7], LOW);   //Turn off LED #7 (pin 9)
   delay(delayTime);                //wait delayTime milliseconds
   digitalWrite(ledPins[6], LOW);   //Turn off LED #6 (pin 8)
@@ -175,9 +175,9 @@ void oneAfterAnotherNoLoop()
   digitalWrite(ledPins[1], LOW);   //Turn off LED #1 (pin 3)
   delay(delayTime);                //wait delayTime milliseconds
   digitalWrite(ledPins[0], LOW);   //Turn off LED #0 (pin 2)
-  delay(delayTime);                //wait delayTime milliseconds  
+  delay(delayTime);                //wait delayTime milliseconds
 }
- 
+
 
 /*
 oneAfterAnotherLoop()
@@ -194,31 +194,31 @@ void oneAfterAnotherLoop()
                        // make this smaller for faster switching
 
   // Turn all the LEDs on:
- 
+
   // This for() loop will step index from 0 to 7
   // (putting "++" after a variable means add one to it)
   // and will then use digitalWrite() to turn that LED on.
-  
+
   for(index = 0; index <= 7; index++)
   {
     digitalWrite(ledPins[index], HIGH);
-    delay(delayTime);                
-  }                                  
+    delay(delayTime);
+  }
 
   // Turn all the LEDs off:
 
   // This for() loop will step index from 7 to 0
   // (putting "--" after a variable means subtract one from it)
   // and will then use digitalWrite() to turn that LED off.
- 
+
   for(index = 7; index >= 0; index--)
   {
     digitalWrite(ledPins[index], LOW);
     delay(delayTime);
-  }               
+  }
 }
 
- 
+
 /*
 oneOnAtATime()
 
@@ -231,9 +231,9 @@ void oneOnAtATime()
   int index;
   int delayTime = 100; // milliseconds to pause between LEDs
                        // make this smaller for faster switching
-  
+
   // step through the LEDs, from 0 to 7
-  
+
   for(index = 0; index <= 7; index++)
   {
     digitalWrite(ledPins[index], HIGH);  // turn LED on
@@ -242,7 +242,7 @@ void oneOnAtATime()
   }
 }
 
- 
+
 /*
 pingPong()
 
@@ -255,9 +255,9 @@ void pingPong()
   int index;
   int delayTime = 100; // milliseconds to pause between LEDs
                        // make this smaller for faster switching
-  
+
   // step through the LEDs, from 0 to 7
-  
+
   for(index = 0; index <= 7; index++)
   {
     digitalWrite(ledPins[index], HIGH);  // turn LED on
@@ -266,7 +266,7 @@ void pingPong()
   }
 
   // step through the LEDs, from 7 to 0
-  
+
   for(index = 7; index >= 0; index--)
   {
     digitalWrite(ledPins[index], HIGH);  // turn LED on
@@ -287,10 +287,10 @@ void marquee()
   int index;
   int delayTime = 200; // milliseconds to pause between LEDs
                        // Make this smaller for faster switching
-  
+
   // Step through the first four LEDs
   // (We'll light up one in the lower 4 and one in the upper 4)
-  
+
   for(index = 0; index <= 3; index++) // Step from 0 to 3
   {
     digitalWrite(ledPins[index], HIGH);    // Turn an LED on
@@ -313,14 +313,14 @@ void randomLED()
 {
   int index;
   int delayTime;
-  
+
   // The random() function will return a semi-random number each
   // time it is called. See http://arduino.cc/en/Reference/Random
   // for tips on how to make random() even more random.
-  
+
   index = random(8);	// pick a random number between 0 and 7
   delayTime = 100;
-	
+
   digitalWrite(ledPins[index], HIGH);  // turn LED on
   delay(delayTime);                    // pause to slow down
   digitalWrite(ledPins[index], LOW);   // turn LED off
