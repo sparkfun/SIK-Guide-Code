@@ -1,12 +1,13 @@
-SparkFun Inventor's Kit for Arduino - Example Sketches
+SparkFun Inventor's Kit - Example Sketches
 ======================================================
 
-[![SparkFun Inventor's Kit for Arduino](https://dlnmh9ip6v2uc.cloudfront.net/images/products/1/1/2/2/7/SIK_Update_no_Overlays_medium.jpg)  
-*SparkFun Inventor's Kit for Arduino (KIT-11227)*](https://www.sparkfun.com/products/)
+[![SparkFun Inventor's Kit](hhttps://cdn.sparkfun.com//assets/parts/8/6/5/3/12060-01.jpg)  
+*SparkFun Inventor's Kit (KIT-12060)*](https://www.sparkfun.com/products/12060)
 
 The example sketches in this repository are part of the SparkFun Inventor's Kit (a.k.a. *"The SIK"*). The SIK consists of an [Arduino microcontroller](http://www.arduino.com) and a variety of electronic components designed to help you learn basic programming and circuits. Once you've mastered these circuits, you'll be able to start building projects limited only by your imagination!
 
-These sketches are designed to be used along with the [**SIK Guide**](http://dlnmh9ip6v2uc.cloudfront.net/datasheets/Kits/SFE03-0012-SIK.Guide-300dpi-01.pdf) which has illustrations of the circuit layout and other useful information.
+These sketches are designed to work with the [SIK Experiment Guide](https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v32) tutorial. 
+
 
 Getting Started
 ---------------
@@ -38,24 +39,15 @@ Sketch Topics
 12. Motor
 13. Relay
 14. Shift register
+15. Using an LCD
+16. Simon Says
 
-New concepts
-------------
+Version History
+---------------
+* [v32]() -SIK code version 3.2
+* [v30](https://github.com/sparkfun/SIK-Guide-Code/tree/v30) -SIK code version 3.0
 
-1.  Basic sketch structure, comments, digital outputs, LED and resistor, delay
-2.  Potentiometer (knob), analog input, variables
-3.  RGB LED, constant values, "for" loops, if/else, user functions, PWM (analogWrite)
-4.  Multiple LEDs, arrays of data, calling user-written functions, random numbers
-5.  Pushbuttons, digital input, complex logic
-6.  Photoresistor, making voltage dividers for resistive sensors
-7.  Temperature sensor, serial monitor, floating-point numbers, functions returning values
-8.  Servomotor, code libraries
-9.  Flex sensor, input to output, map and constrain
-10. Soft potentiometer, more complex value mapping, nesting math functions
-11. Buzzer, tone generation, searching arrays
-12. DC motor, transistor, flyback (protection) diode, serial numeric input
-13. Relays, switch contacts, normally-open (NO), normally-closed (NC)
-14. Shift register chip, SPI, bits and binary numbers
+
 
 License Information
 -------------------

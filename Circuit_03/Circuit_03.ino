@@ -91,7 +91,7 @@ void loop()
   // LEDs between full-on and full-off.
   
   // The analogWrite() function lets us do this. This function
-  // lets you dim an LED from full-off to full-on over 255 steps.
+  // lets you dim a LED from full-off to full-on over 255 steps.
   
   // We've written a function called showSpectrum() that smoothly
   // steps through all the colors. Again we're just calling it
