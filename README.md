@@ -1,7 +1,7 @@
 SparkFun Inventor's Kit - Example Sketches
 ======================================================
 
-[![SparkFun Inventor's Kit](hhttps://cdn.sparkfun.com//assets/parts/8/6/5/3/12060-01.jpg)  
+[![SparkFun Inventor's Kit](https://cdn.sparkfun.com//assets/parts/8/6/5/3/12060-01.jpg)  
 *SparkFun Inventor's Kit (KIT-12060)*](https://www.sparkfun.com/products/12060)
 
 The example sketches in this repository are part of the SparkFun Inventor's Kit (a.k.a. *"The SIK"*). The SIK consists of an [Arduino microcontroller](http://www.arduino.com) and a variety of electronic components designed to help you learn basic programming and circuits. Once you've mastered these circuits, you'll be able to start building projects limited only by your imagination!
@@ -44,7 +44,7 @@ Sketch Topics
 
 Version History
 ---------------
-* [v32]() -SIK code version 3.2
+* [v32](https://github.com/sparkfun/SIK-Guide-Code/tree/v32) -SIK code version 3.2
 * [v30](https://github.com/sparkfun/SIK-Guide-Code/tree/v30) -SIK code version 3.0
 
 
