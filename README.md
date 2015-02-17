@@ -1,2 +1,2 @@
 # SIK_rework
-Re-work repository for all code examples, fritzing diagrams, and photos
+SIK Re-Work for No Starch Book version 
