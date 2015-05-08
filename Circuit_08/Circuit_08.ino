@@ -61,7 +61,7 @@ Version 2.0 6/2012 MDG
 // Most libraries also have example sketches you can load from
 // the "file/examples" menu.
 
-// Now we'll create a servo "object", called myservo. You should
+// Now we'll create a servo "object", called servo1. You should
 // create one of these for each servo you want to control. 
 // You can control a maximum of twelve servos on the Uno 
 // using this library. (Other servo libraries may let you
