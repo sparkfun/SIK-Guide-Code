@@ -105,7 +105,7 @@ void loop()
 
 // This function displays the eight "main" colors that the RGB LED
 // can produce. If you'd like to use one of these colors in your 
-// own sketch, you cancopy and paste that section into your code.
+// own sketch, you can copy and paste that section into your code.
 
 void mainColors()
 {
