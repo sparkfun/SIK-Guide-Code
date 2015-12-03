@@ -38,7 +38,7 @@ Hardware connections:
     The transistor has three pins. Looking at the flat side with
     the pins down, the order is COLLECTOR, BASE, EMITTER.
     
-    Connect the BASE pin through a 1K resistor to digital pin 2.
+    Connect the BASE pin through a 330 Ohm resistor to digital pin 2.
     
     Connect the EMITTER pin to GND.
   
