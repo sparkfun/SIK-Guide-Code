@@ -92,7 +92,7 @@ void loop()
 
   // Read the voltage from the softpot (0-1023)
   
-  sensorValue = analogRead(0);
+  sensorValue = analogRead(SENSOR_PIN);
 
   // We've written a new function called setRGB() (further down
   // in the sketch) that decodes sensorValue into a position
@@ -104,7 +104,7 @@ void loop()
 
 // setRGB()
 // Set a RGB LED to a position on the "rainbow" of all colors.
-// RGBposition should be in the range of 0 to 1023 (such as
+// RGB position should be in the range of 0 to 1023 (such as
 // from an analog input).
 
 void setRGB(int RGBposition)
