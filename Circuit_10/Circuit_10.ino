@@ -104,7 +104,7 @@ void loop()
 
 // setRGB()
 // Set a RGB LED to a position on the "rainbow" of all colors.
-// RGB position should be in the range of 0 to 1023 (such as
+// RGBposition should be in the range of 0 to 1023 (such as
 // from an analog input).
 
 void setRGB(int RGBposition)
