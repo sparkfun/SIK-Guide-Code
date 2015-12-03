@@ -54,7 +54,7 @@ Hardware connections:
     digital pin 3.
 
     Also connect 10K resistors (brown/black/red) between
-    digital pins 2 and 3 and GND. These are called "pullup"
+    digital pins 2 and 3 and 5 Volts. These are called "pullup"
     resistors. They ensure that the input pin will be either
     5V (unpushed) or GND (pushed), and not somewhere in between.
     (Remember that unlike analog inputs, digital inputs are only
