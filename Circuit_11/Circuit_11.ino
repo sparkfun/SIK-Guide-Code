@@ -83,7 +83,7 @@ int beats[] = {1,1,1,1,1,1,4,4,2,1,1,1,1,1,1,4,4,2};
 // The tempo is how fast to play the song.
 // To make the song play faster, decrease this value.
 
-int tempo = 150;
+int tempo = 113;
 
 
 void setup() 
