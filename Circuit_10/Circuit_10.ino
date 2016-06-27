@@ -92,7 +92,7 @@ void loop()
 
   // Read the voltage from the softpot (0-1023)
   
-  sensorValue = analogRead(SENSOR_PIN);
+  sensorValue = analogRead(0);
 
   // We've written a new function called setRGB() (further down
   // in the sketch) that decodes sensorValue into a position

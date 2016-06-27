@@ -1,6 +1,6 @@
 /*
 SparkFun Inventor's Kit
-Example sketch 08-1
+Example sketch 08-2
 
 SINGLE SERVO
 
@@ -70,6 +70,7 @@ Version 2.0 6/2012 MDG
 
 Servo servo1;  // servo control object
 
+int angle; 
 
 void setup()
 {
@@ -86,55 +87,53 @@ void setup()
   // you can call servo1.detach().
 
   servo1.attach(9, 900, 2100);
-
+  Serial.begin(9600);
 }
 
 
 void loop()
 {
-  int position;
+  serialServo();  
+}
+
+
+void serialServo()
+{
+  int speed;
   
-  // To control a servo, you give it the angle you'd like it
-  // to turn to. Servos cannot turn a full 360 degrees, but you
-  // can tell it to move anywhere between 0 and 180 degrees.
+  Serial.println("Type an angle (0-180) into the box above,");
+  Serial.println("then click [send] or press [return]");
+  Serial.println();  // Print a blank line
 
-  // Change position at full speed:
+  // In order to type out the above message only once,
+  // we'll run the rest of this function in an infinite loop:
 
-  servo1.write(90);    // Tell servo to go to 90 degrees
-
-  delay(1000);         // Pause to get it time to move
-
-  servo1.write(180);   // Tell servo to go to 180 degrees
-
-  delay(1000);         // Pause to get it time to move
-
-  servo1.write(0);     // Tell servo to go to 0 degrees
-
-  delay(1000);         // Pause to get it time to move
-  
-  // Change position at a slower speed:
-
-  // To slow down the servo's motion, we'll use a for() loop
-  // to give it a bunch of intermediate positions, with 20ms
-  // delays between them. You can change the step size to make 
-  // the servo slow down or speed up. Note that the servo can't
-  // move faster than its full speed, and you won't be able
-  // to update it any faster than every 20ms.
-
-  // Tell servo to go to 180 degrees, stepping by two degrees
- 
-  for(position = 0; position < 180; position += 2)
+  while(true)  // "true" is always true, so this will loop forever.
   {
-    servo1.write(position);  // Move to next position
-    delay(20);               // Short pause to allow it to move
-  }
-
-  // Tell servo to go to 0 degrees, stepping by one degree
-
-  for(position = 180; position >= 0; position -= 1)
-  {                                
-    servo1.write(position);  // Move to next position
-    delay(20);               // Short pause to allow it to move
+    // First we check to see if incoming data is available:
+  
+    while (Serial.available() > 0)
+    {
+      // If it is, we'll use parseInt() to pull out any numbers:     
+      angle = Serial.parseInt();
+  
+      // Because analogWrite() only works with numbers from
+      // 0 to 255, we'll be sure the input is in that range:
+  
+      angle = constrain(angle, 0, 180);
+      
+      // We'll print out a message to let you know that the
+      // number was received:
+      
+      Serial.print("Setting angle to ");
+      Serial.println(angle);
+  
+      // And finally, we'll set the speed of the motor!
+      
+      servo1.write(angle);
+    }
   }
 }
+
+
 

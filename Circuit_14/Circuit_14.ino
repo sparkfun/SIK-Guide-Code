@@ -1,6 +1,6 @@
 /*
 SparkFun Inventor's Kit
-Example sketch 13
+Example sketch 14
 
 SHIFT REGISTER
 
@@ -168,8 +168,8 @@ void shiftWrite(int desiredPin, boolean desiredState)
   // Once the data is in the shift register, we still need to
   // make it appear at the outputs. We'll toggle the state of
   // the latchPin, which will signal the shift register to "latch"
-  // the data to the outputs. (Latch activates on the low-to
-  // -high transition).
+  // the data to the outputs. (Latch activates on the high-to
+  // -low transition).
 
   digitalWrite(latchpin, HIGH);
   digitalWrite(latchpin, LOW);
