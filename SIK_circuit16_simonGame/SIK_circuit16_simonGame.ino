@@ -1,8 +1,8 @@
 /*
  SparkFun Inventor's Kit
  Example sketch 16
- Spark Fun Electronics
- Oct. 7, 2014
+ 
+ SIMON SAYS
 
  Simon Says is a memory game. Start the game by pressing one of the four buttons. When a button lights up, 
  press the button, repeating the sequence. The sequence will get longer and longer. The game is won after 
@@ -27,6 +27,7 @@
  with lots of help from the Arduino community.
  This code is completely free for any use.
  Visit http://www.arduino.cc to learn about the Arduino.
+ 
  */
 
 #include "SIK_circuit16_simonGame.h" // public constants used in the code

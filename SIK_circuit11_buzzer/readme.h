@@ -10,7 +10,9 @@
  * the buzzer at a certain frequency. This sketch knows the
  * frequencies of the common notes, allowing you to create songs.
  * We're never going to let you down!
- * 
+ **************************************************************/
+
+ /**************************************************************** 
  * Hardware connections:
  * 
  * The buzzer has two pins. One is positive and one is negative.
@@ -26,4 +28,41 @@
  * 
  **************************************************************/
 
+/*****************************************************************
+ * This sketch uses the tone() command to play notes.
+ * 
+ * Usage: tone([pin], [frequency]);
+ * 
+ * note  frequency
+ * c     262 Hz
+ * d     294 Hz
+ * e     330 Hz
+ * f     349 Hz
+ * g     392 Hz
+ * a     440 Hz
+ * b     494 Hz
+ * C     523 Hz
+ * 
+ * Other useful commands: noTone([pin]); and delay([time_ms]);
+ * 
+ * For more information, see http://arduino.cc/en/Tutorial/Tone
+ ****************************************************************/
 
+// In this sketch, we introduce an array or a list. Here is an array called notes[] that is
+// an array of individual characters. Each character is designated by a ' ' and separated
+// by commas. The spaces ' ' represent a rest note.
+
+/***************************************************************** 
+frequency() 
+// This is a specially written function takes a note as a character (a-g), 
+// and returns the corresponding frequency in Hz for the tone() function.
+
+// The char_names and frequencies arrays hold the note characters and their
+// corresponding frequencies. The last "C" note is uppercase
+// to separate it from the first lowercase "c". If you want to
+// add more notes, you'll need to use unique characters.
+
+// For the "char" (character) type, we put single characters
+// in single quotes.
+
+ ****************************************************************/

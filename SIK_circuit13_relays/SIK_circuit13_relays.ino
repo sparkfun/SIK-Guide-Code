@@ -24,7 +24,7 @@
  * Version 2.1 8/2014 BCH
  *******************************************************************/
 
-const int relayPin = 2;	    // use this pin to drive the transistor (which drives the relay)
+const int relayPin = 2;	    // This pin drives the transistor (which drives the relay)
 const int timeDelay = 1000; // delay in ms for on and off phases
 
 // You can make timeDelay shorter, but note that relays, being

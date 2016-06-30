@@ -32,14 +32,22 @@
  * In this example, we have three new functions:
  *   mainColors(), showSpectrum(), and RGB(int color)
  * 	
- * mainColors() steps through all eight of these colors. 
- *
- * showSpectrum() gradually fades from Red to Green to Blue, and 
- *   back to red.
+ * mainColors() steps through eight colors by turning on the individual
+ * LEDs (RED, BLUE, and GREEN) on and off in various combinations. This
+ * function turns the LEDs full-on and full-off. If you want to generate
+ * more than eight colors, you can do so by varying the brightness of the 
+ * individual LEDs between full-on and full-off. 
+ * 
+ * The analogWrite() function lets us do this. This function lets you dim
+ * an LED from full-off to full-on over 255 steps. 
  *
  * RGB(int color) - takes an input parameter, "color" and uses this in
  *   its code. A variable called "color" is passed into this function
- *   with the value of the number in parentheses.   
+ *   with the value of the number in parentheses.  
+ * 
+ * showSpectrum() steps through all the colors of the RGB LED, displaying a
+ * rainbow. showSpectrum() calls RGB(int color) over and over again to do this.
+ *
  *
  * ===================
  * Calling functions:

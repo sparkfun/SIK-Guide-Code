@@ -18,56 +18,35 @@
  * Version 2.1 9/2014 BCH
  *****************************************************************/
 
-/*****************************************************************
- * This sketch uses the tone() command to play notes.
- * 
- * Usage: tone([pin], [frequency]);
- * 
- * note  frequency
- * c     262 Hz
- * d     294 Hz
- * e     330 Hz
- * f     349 Hz
- * g     392 Hz
- * a     440 Hz
- * b     494 Hz
- * C     523 Hz
- * 
- * Other useful commands: noTone([pin]); and delay([time_ms]);
- * 
- * For more information, see http://arduino.cc/en/Tutorial/Tone
- ****************************************************************/
 
-const int buzzerPin = 9;    // connect the buzzer to pin 9 and GND
-const int songLength = 18;  // sets the number of notes of the song.
+
+const int buzzerPin = 9;    // connect the buzzer to pin 9
+const int songLength = 18;  // sets the number of notes of the song
 
 // Notes is an array of text characters corresponding to the notes
 // in your song. A space represents a rest (no tone)
-//
-// Here we introduce an array or a list. Here is an array called notes[] that is
-// an array of individual characters. Each character is designated by a ' ' and separated
-// by commas. The spaces ' ' represent a rest note.
+
 char notes[songLength] = {
   'c', 'd', 'f', 'd', 'a', ' ', 'a', 'g', ' ', 'c', 'd', 'f', 'd', 'g', ' ', 'g', 'f', ' '}; 
 
 // beats[] is an array of values for each note. A "1" represents a quarter-note, 
-// 2 a half-note, etc.
+// "2" a half-note, and "4" a quarter-note.
 // Don't forget that the rests (spaces) need a length as well.
 
 int beats[songLength] = {
   1, 1, 1, 1, 1, 1, 4, 4, 2, 1, 1, 1, 1, 1, 1, 4, 4, 2};
 
-int tempo = 150;  // The tempo is how fast to play the song.
+int tempo = 113;  // The tempo is how fast to play the song (beats per second).
 
 void setup() 
 {
-  pinMode(buzzerPin, OUTPUT);  // sets the pin as an OUTPUT
+  pinMode(buzzerPin, OUTPUT);  // sets the  buzzer pin as an OUTPUT
 }
 
 
 void loop() 
 {
-  int i, duration;
+  int i, duration; //
 
   for (i = 0; i < songLength; i++) // for loop is used to index through the arrays
   {
@@ -83,16 +62,13 @@ void loop()
     delay(tempo/10);              // brief pause between notes
   }
 
-  // We only want to play the song once, so we'll pause forever:
   while(true){
+  // We only want to play the song once, so we pause forever
   }
   // If you'd like your song to play over and over, remove the while(true)
   // statement above
 }
 
-
-// frequency() is a specially written function takes a note as a character (a-g), 
-// and returns the corresponding frequency in Hz for the tone() function.
 int frequency(char note) 
 {
   int i;

@@ -18,7 +18,8 @@ const int BLUE_PIN = 11;
 
 const int DISPLAY_TIME = 1000;  // used in mainColors() to determine the 
 // length of time each color is displayed.
-void setup()
+
+void setup()	//Configure the Arduino pins to be outputs to drive the LEDs
 {
   pinMode(RED_PIN, OUTPUT);
   pinMode(GREEN_PIN, OUTPUT);
@@ -92,7 +93,7 @@ void mainColors()
  * void showSpectrum()
  * 
  * Steps through all the colors of the RGB LED, displaying a rainbow.
- * showSpectrum() calls a function showRGB() that translates a number
+ * showSpectrum() calls a function RGB(int color) that translates a number
  * from 0 to 767 where 0 = all RED, 767 = all RED
  *  
  * Breaking down tasks down into individual functions like this
@@ -102,7 +103,7 @@ void mainColors()
 
 void showSpectrum()
 {
-  for (int x = 0; x <= 766; x++)
+  for (int x = 0; x <= 767; x++)
   {
     RGB(x);      // Increment x and call RGB() to progress through colors.
     delay(10);   // Delay for 10 ms (1/100th of a second) - to help the "smoothing"

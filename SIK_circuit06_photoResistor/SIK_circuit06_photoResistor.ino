@@ -31,7 +31,7 @@ int minThreshold = 1023;   // used for setting the "min" light level
 
 void setup()
 {
-  pinMode(ledPin, OUTPUT);    // Setup the LED pin to be an output.
+  pinMode(ledPin, OUTPUT);    // Set up the LED pin to be an output.
   Serial.begin(9600);
 }
 

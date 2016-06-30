@@ -21,19 +21,19 @@
  * Version 2.1 8/2014 BCH
  *******************************************************************/
 
-const int motorPin = 9;  // connect the base of the transistor to pin 9
-                         // even though it's not directly connected to the motor
+const int motorPin = 9;  // Connect the base of the transistor to pin 9.
+                         // Even though it's not directly connected to the motor,
                          // we'll call it the 'motorPin'
 
 void setup()
 {
-  pinMode(motorPin, OUTPUT);  // setup the pin as an OUTPUT
-  Serial.begin(9600);         // initialize Serial communications.
+  pinMode(motorPin, OUTPUT);  // set up the pin as an OUTPUT
+  Serial.begin(9600);         // initialize Serial communications
 }
 
 
 void loop()
-{ // this example basically replicates a blink, but with the motorPin instead.
+{ // This example basically replicates a blink, but with the motorPin instead.
   int onTime = 3000;  // milliseconds to turn the motor on
   int offTime = 3000; // milliseconds to turn the motor off
 
@@ -70,9 +70,8 @@ void speedUpandDown()
   }
 }
 
-// serialSpeed()
-// Open the Serial Monitor and enter a speed value (0 to 255) to 
-// set the motor to.
+
+// Input a speed from 0-255 over the Serial port
 void serialSpeed()
 {
   int speed;

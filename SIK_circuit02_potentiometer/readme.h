@@ -66,17 +66,18 @@ Hardware connections:
 // for a list of all the data types you can use).
 
 // You must "declare" variables before you use them, so that the
-// computer knows about them. Here we'll declare two integer
+// computer knows about them. In this sketch, we declare two integer
 // variables, and at the same time, initialize them to specific
-// values. We're doing this so that further down, we can refer to
+// values. We're doing this so that further on in the code, we can refer to
 // the pins by name rather than number.
 
 // Note that variable names are case-sensitive! If you get an
 // "(variable) was not declared in this scope" error, double-check
 // that you typed the name correctly.
 
-// Here we're creating a variable called "sensorPin" of type "int"
-// and initializing it to have the value "0":
+// First we create a variable called "sensorPin" of type "int"
+// and initializing it to have the value "A0":
+
 // One more thing. If you declare variables outside of a function,
 // as we have here, they are called "global variables" and can be
 // seen by all the functions. If you declare variables within a 
@@ -84,37 +85,36 @@ Hardware connections:
 // practice to "limit the scope" of a variable whenever possible,
 // but as we're getting started, global variables are just fine.
 
-  // We'll be using pin 13 to light a LED, so we must configure it
-  // as an output.
+// We'll be using pin 13 to light a LED, so we must configure it
+// as an output.
  
-  // Because we already created a variable called ledPin, and
-  // set it equal to 13, we can use "ledPin" in place of "13".
-  // This makes the sketch easier to follow.
-  
-  // The above line is the same as "pinMode(13, OUTPUT);"
+// Because we already created a variable called ledPin, and
+// set it equal to 13, we can use "ledPin" in place of "13".
+// This makes the sketch easier to follow. That means that
+// "pinMode(ledPin, OUTPUT)" is the same as "pinMode(13, OUTPUT);"
 
-  // You might be wondering why we're not also configuring
-  // sensorPin as an input. The reason is that this is an
-  // "analog in" pin. These pins have the special ability to
-  // read varying voltages from sensors like the potentiometer.
-  // Since they're always used as inputs, there is no need to
-  // specifically configure them.
+// You might be wondering why we're not also configuring
+// sensorPin as an input. The reason is that this is an
+// "analog in" pin. These pins have the special ability to
+// read varying voltages from sensors like the potentiometer.
+// Since they're always used as inputs, there is no need to
+// specifically configure them.
 
-  // The potentiometer is set up as a voltage divider, so that
-  // when you turn it, the voltage on the center pin will vary
-  // from 0V to 5V. We've connected the center pin on the
-  // potentiometer to the Arduino's analog input 0.
+// The potentiometer is set up as a voltage divider, so that
+// when you turn it, the voltage on the center pin will vary
+// from 0V to 5V. We've connected the center pin on the
+// potentiometer to the Arduino's analog input 0.
 
-  // The Arduino can read external voltages on the analog input
-  // pins using a built-in function called analogRead(). This
-  // function takes one input value, the analog pin we're using
-  // (sensorPin, which we earlier set to 0). It returns an integer
-  // number that ranges from 0 (0 Volts) to 1023 (5 Volts).
-  // We're sticking this value into the sensorValue variable:
-  // Now we'll blink the LED like in the first example, but we'll
-  // use the sensorValue variable to change the blink speed
-  // (the smaller the number, the faster it will blink).
+// The Arduino can read external voltages on the analog input
+// pins using a built-in function called analogRead(). This
+// function takes one input value, the analog pin we're using
+// (sensorPin, which we earlier set to 0). It returns an integer
+// number that ranges from 0 (0 Volts) to 1023 (5 Volts).
+// We're sticking this value into the sensorValue variable:
+// Now we'll blink the LED like in the first example, but we'll
+// use the sensorValue variable to change the blink speed
+// (the smaller the number, the faster it will blink).
 
-  // Note that we're using the ledPin variable here as well:
+// Note that we're using the ledPin variable for blinking the LED.
 
 

@@ -14,7 +14,12 @@
  * provide, we'll use a transistor to do the heavy lifting.
  * A transistor is a solid-state switch. When we give it a small
  * amount of current, it can switch a much larger current.
- * The transistors in your kit (2N2222) can switch up to 200mA.
+ * The transistors in your kit (BC337) can switch up to 800mA.
+ *
+ * **NOTE:** Do not attempt to draw more than 400mA through your 
+ * Arduino when powered only via USB. USB ports can only source up  
+ * to 500mA and attempting to draw more than that can lead to the 
+ * Arduino malfunctioning or other hardware issues. 
  * 
  * You can turn a transistor on and off using the digitalWrite()
  * function, but you can also use the analogWrite() function to
@@ -27,7 +32,9 @@
  * of the motor. For PWM values below 50 or so, the motor won't have
  * enough torque to start spinning. It will start spinning when you
  * raise the speed a bit.
- * 
+ ******************************************************************/
+  
+/******************************************************************* 
  * Hardware connections:
  * 
  * Transistor:
@@ -61,4 +68,23 @@
  * Connect the side of the diode with the band (cathode) to 5V
  * Connect the other side of the diode (anode) to the black wire
  * on the motor.
+ 
+ * Keep in mind that if the diode is inserted backwards, the motor
+ * may appear to function normally. However, this can lead to other 
+ * issues with your circuit, so double check this! 
  ******************************************************************/
+ 
+/******************************************************************* 
+ void speedUpandDown()
+ 
+// This function accelerates the motor to full speed,
+// then decelerates back down to a stop. We use a for() loop to increase
+// and then decrease the speed. 
+ ******************************************************************/
+  
+/******************************************************************* 
+void serialSpeed()
+
+// This function allows the user to declare a motor speed from 0-255. 
+// The speed is input via the Serial terminal. 
+******************************************************************/

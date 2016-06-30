@@ -24,7 +24,12 @@
  * Connect the other side of the resistor to GND.
 
 /*****************************************************************/
-
+  
+  // Just as we've done in the past, we'll use the analogRead()
+  // function to measure the voltage coming from the photoresistor
+  // resistor pair. This number can range between 0 (0 Volts) and
+  // 1023 (5 Volts), but this circuit will have a smaller range
+  // between dark and light.
 
   // We now want to use this number to control the brightness of
   // the LED. But we have a problem: the analogRead() function
@@ -56,14 +61,10 @@
   // change brightness, but it will never be completely off or
   // completely on.
 
-  // You can fix this two ways, each of which we'll show
-  // in the functions below. Uncomment ONE of them to
-  // try it out:
-
-
-/*
-void autoCalibrate()
-{
+  // You can fix this with the following function:
+  
+/*****************************************************************
+ void autoTune()
   // As we mentioned above, the light-sensing circuit we built
   // won't have a range all the way from 0 to 1023. It will likely
   // be more like 300 (dark) to 800 (light).
@@ -78,6 +79,18 @@ void autoCalibrate()
 
   // If you look at the top of the sketch, you'll see that we've
   // initialized "low" to be 1023. We'll save anything we read
-  // that's lower than that:
+  // that's lower than that.
+   
+  // We also initialized "high" to be 0. We'll save anything
+  // we read that's higher than that.
+
+  // Once we have the highest and lowest values, we can stick them
+  // directly into the map() function. No manual tweaking needed!
   
-  */
+  // One trick we'll do is to add a small offset to low and high,
+  // to ensure that the LED is fully-off and fully-on at the limits
+  // (otherwise it might flicker a little bit).
+ 
+  // Now we'll return to the main loop(), and send lightLevel
+  // to the LED.
+*****************************************************************/

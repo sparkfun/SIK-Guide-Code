@@ -15,8 +15,8 @@
  */
 
 int sensorPin = A0;    // The potentiometer is connected to analog pin 0                  
-int sensorValue;
 int ledPin = 13;      // The LED is connected to digital pin 13
+int sensorValue;	//We declare another integer variable to store the value of the potentiometer
 
 void setup() // this function runs once when the sketch starts up
 {

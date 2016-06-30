@@ -1,4 +1,4 @@
-/*
+/**************************************************************
 RELAYS
 
   Use a transistor to drive a relay
@@ -27,15 +27,16 @@ RELAYS
 
   This code is very simple - it turns the relay on for one second,
   and off for one second, the same as the blink sketch!
-  
-  Hardware connections:
-  =====================
+******************************************************************/
+/**************************************************************
+Hardware connections
+
   Transistor:
   
     The transistor has three pins. Looking at the flat side with
     the pins down, the order is COLLECTOR, BASE, EMITTER.
     
-    Connect the BASE pin through a 1K resistor to digital pin 2.
+    Connect the BASE pin through a 330 Ohm resistor to digital pin 2.
     
     Connect the EMITTER pin to GND.
   
@@ -78,8 +79,4 @@ RELAYS
     positive (longer) leg of LED 2.
     
     Connect the negative sides (shorter leg) of both LEDs to GND.
-
-  
-  
-  
-*/
+******************************************************************/

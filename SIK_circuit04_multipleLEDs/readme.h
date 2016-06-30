@@ -25,15 +25,30 @@
 //   2. A test to perform; as long as it's true, keep looping
 //   3. Something to do after each loop (increase a variable)
 
-// For the for() loop below, these are the three statements:
+// For the for() loops, these are two different examples:
+//	for(index = 0; index <= 7; index = index + 1)
+//	and 
+// for(index = 7; index >= 0; index = index - 1)
 
+//	The first for() loop includes three statements:
 //   1. index = 0;    Before starting, make index = 0.
-//   2. index <= 7;   If index is less or equal to 7,
+//   2. index <= 7;   If index is less than or equal to 7,
 //                    run the following code.
-//			(When index = 8, continue with the sketch.)
-//   3. index++	Putting "++" after a variable means
+//					  When index = 8, continue with 
+//					  the sketch.
+//   3. index++ 	Putting "++" after a variable means
 //                    "add one to it".
-//			(You can also use "index = index + 1".)
+//					You can also use "index = index + 1".
+
+//	The second for() loop includes three statements:
+//   1. index = 7;    Before starting, make index = 7.
+//   2. index >= 0;   If index is greater than or equal to 0,
+//                    run the following code.
+//					  When index = -1, continue with 
+//					  the sketch.
+//   3. index-- 	Putting "--" after a variable means
+//                    "subtract one from it".
+//					You can also use "index = index - 1".
 
 // Every time you go through the loop, the statements following
 // the for() (within the brackets) will run.
@@ -41,8 +56,7 @@
 // When the test in statement 2 is finally false, the sketch
 // will continue.
 
-
-// Here we'll use a for() loop to initialize all the LED pins
+// To begin, we'll use a for() loop to initialize all the LED pins
 // to outputs. This is much easier than writing eight separate
 // statements to do the same thing.
 
@@ -51,11 +65,6 @@
 // for index = 2, index = 3, etc. all the way to index = 7.
 
 
-  // This loop() calls functions that we've written further below.
-  // We've disabled some of these by commenting them out (putting
-  // "//" in front of them). To try different LED displays, remove
-  // the "//" in front of the ones you'd like to run, and add "//"
-  // in front of those you don't to comment out (and disable) those
-  // lines.
+ 
 
 

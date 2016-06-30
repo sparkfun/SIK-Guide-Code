@@ -11,9 +11,11 @@
  * Version 2.0 6/2012 MDG
  * Version 2.1 9/2014 BCH
 /*****************************************************************/
+
 int ledPins[] = {2,3,4,5,6,7,8,9};   // Defines an array to store the pin numbers of the 8 LEDs. 
 // An array is like a list variable that can store multiple numbers.
-// Arrays are referenced or "indexed" with a number in the brackets [ ]. See the example below. 
+// Arrays are referenced or "indexed" with a number in the brackets [ ]. See the examples in
+// the pinMode() functions below. 
 
 void setup()
 {
@@ -30,6 +32,14 @@ void setup()
 
 void loop()
 {
+
+  // This loop() calls functions that we've written further below.
+  // We've disabled some of these by commenting them out (putting
+  // "//" in front of them). To try different LED displays, remove
+  // the "//" in front of the ones you'd like to run, and add "//"
+  // in front of those you don't to comment out (and disable) those
+  // lines.
+
   oneAfterAnother();  // Light up all the LEDs in turn
   
   //oneOnAtATime();         // Turn on one LED at a time,
@@ -41,12 +51,14 @@ void loop()
   //randomLED();            // Blink LEDs randomly
 }
 
+
+
 /******************************************************************
  * oneAfterAnother()
  * 
- * This function does exactly the same thing as oneAfterAnotherNoLoop(),
- * but it takes advantage of for() loops and the array to do it with
- * much less typing.
+ * This function turns all the LEDs on, pauses, and then turns all 
+ * the LEDS off. The function takes advantage of for() loops and 
+ * the array to do this with minimal typing. 
 /*****************************************************************/
 void oneAfterAnother()
 {
@@ -55,14 +67,14 @@ void oneAfterAnother()
                        // make this smaller for faster switching
 
   // Turn all the LEDs on:  
-  for(index = 0; index <= 7; index = index + 1)  // step through index from 0 to 7
+  for(index = 0; index <= 7; index = index++)  // step through index from 0 to 7
   {
     digitalWrite(ledPins[index], HIGH);
     delay(delayTime);                
   }                                  
 
   // Turn all the LEDs off: 
-  for(index = 7; index >= 0; index = index - 1)  // step through index from 7 to 0
+  for(index = 7; index >= 0; index = index--)  // step through index from 7 to 0
   {
     digitalWrite(ledPins[index], LOW);
     delay(delayTime);
@@ -83,14 +95,14 @@ void oneOnAtATime()
   int delayTime = 100; // milliseconds to pause between LEDs
                        // make this smaller for faster switching
   
-  for(index = 0; index <= 7; index = index + 1)   // step through the LEDs, from 0 to 7
+  for(index = 0; index <= 7; index = index ++)   // step through the LEDs, from 0 to 7
   {
     digitalWrite(ledPins[index], HIGH);  // turn LED on
     delay(delayTime);                    // pause to slow down
     digitalWrite(ledPins[index], LOW);   // turn LED off
   }
 
-  for(index = 7; index >= 0; index = index - 1)   // step through the LEDs, from 7 to 0
+  for(index = 7; index >= 0; index = index --)   // step through the LEDs, from 7 to 0
   {
     digitalWrite(ledPins[index], HIGH);  // turn LED on
     delay(delayTime);                    // pause to slow down
@@ -112,14 +124,14 @@ void pingPong()
   int index;
   int delayTime = 100; // milliseconds to pause between LEDs
    
-  for(index = 0; index <= 7; index = index + 1)   // step through the LEDs, from 0 to 7
+  for(index = 0; index <= 7; index = index ++)   // step through the LEDs, from 0 to 7
   {
     digitalWrite(ledPins[index], HIGH);  // turn LED on
     delay(delayTime);                    // pause to slow down
     digitalWrite(ledPins[index], LOW);   // turn LED off
   }
  
-  for(index = 7; index >= 0; index = index - 1)   // step through the LEDs, from 7 to 0
+  for(index = 7; index >= 0; index = index --)   // step through the LEDs, from 7 to 0
   {
     digitalWrite(ledPins[index], HIGH);  // turn LED on
     delay(delayTime);                    // pause to slow down

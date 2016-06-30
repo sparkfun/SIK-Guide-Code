@@ -19,7 +19,7 @@
  * digital pin 3.
  * 
  * Also connect 10K resistors (brown/black/red) between
- * digital pins 2 and 3 and GND. These are called "pullup"
+ * digital pins 2 and 3 and 5V. These are called "pullup"
  * resistors. They ensure that the input pin will be either
  * 5V (unpushed) or GND (pushed), and not somewhere in between.
  * (Remember that unlike analog inputs, digital inputs are only
@@ -32,26 +32,32 @@
  * additional circuitry.
  * 
  * But if you'd like to connect a second LED to pin 13,
- * 
- * Connect the positive side of your LED to Arduino digital pin 13
- * Connect the negative side of your LED to a 330 Ohm resistor
- * Connect the other side of the resistor to ground
+ * connect the positive side of your LED to Arduino digital pin 13.
+ * Connect the negative side of your LED to a 330 Ohm resistor, and
+ * connect the other side of the resistor to ground.
  * 
 /*****************************************************************/
 
 /******************************************************************
- * But wait - what happens when you're not pushing the button?
+ * What happens when you're not pushing the button?
  * In this state, the pin is disconnected from everything, which 
  * we call "floating". What will the pin read as then, HIGH or LOW?
  * It's hard to say, because there's no solid connection to either
  * 5 Volts or GND. The pin could read as either one.
  * 
- * To deal with this issue, we'll connect a small (10K, or 10,000 Ohm)
+ * To deal with this issue, we connect a small (10K, or 10,000 Ohm)
  * resistance between the pin and 5 Volts. This "pullup" resistor
  * will ensure that when you're NOT pushing the button, the pin will
  * still have a weak connection to 5 Volts, and therefore read as
  * HIGH.
  * 
+ *
+ * (Advanced: when you get used to pullup resistors and know when
+ * they're required, you can activate internal pullup resistors
+ * on the ATmega processor in the Arduino. See
+ * http://arduino.cc/en/Tutorial/DigitalPins for information.)
+ * 
+ *
  * Since a pushbutton has only two states (pushed or not pushed),
  * we've run them into digital inputs. To read an input, we'll
  * use the digitalRead() function. This function takes one
@@ -87,4 +93,10 @@
  * 
  *  Combine these two with an OR (||) 
  *  if ((button1State == LOW) && (button2State == HIGH)) || ((button1State == HIGH) && (button2State == LOW)) 
+ *
+ * As you can see, logic operators can be combined to make complex decisions!
+ *
+ * Don't forget that we use = when we're assigning a value,
+ * and use == when we're testing a value for equivalence.
+
 /*****************************************************************/

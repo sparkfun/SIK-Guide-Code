@@ -28,7 +28,7 @@ Hardware connections:
 
 // The Arduino is a tiny computer that runs programs called
 // "sketches". These are text files written using instructions
-// the computer understances. You're reading a sketch right now.
+// the computer understands. You're reading a sketch right now.
 
 // Sketches have computer code in them, but also (hopefully)
 // "comments" that explain what the code does. Comments and code
@@ -54,46 +54,45 @@ must start and end with these characters */
 
 
 // The setup() function runs once when the sketch starts.
-// You'll use it for things you need to do first, or only once:
+// You'll use it for things you need to do first, or only once.
 
+// The Arduino has 13 digital input/output pins. These pins
+// can be configured as either inputs or outputs. We set this
+// up with a built-in function called pinMode().
 
-  // The Arduino has 13 digital input/output pins. These pins
-  // can be configured as either inputs or outputs. We set this
-  // up with a built-in function called pinMode().
-
-  // The pinMode() function takes two values, which you type in
-  // the parenthesis after the function name. The first value is
-  // a pin number, the second value is the word INPUT or OUTPUT.
+// The pinMode() function takes two values, which you type in
+// the parenthesis after the function name. The first value is
+// a pin number, the second value is the word INPUT or OUTPUT.
   
-  // Here we'll set up pin 13 (the one connected to a LED) to be
-  // an output. We're doing this because we need to send voltage
-  // "out" of the Arduino to the LED.
+// In this sketc, we'll set up pin 13 (the one connected to a LED)
+// to be an output. We're doing this because we need to send 
+// voltage "out" of the Arduino to the LED.
 
-  // The 13 digital pins on your Arduino are great at inputting
-  // and outputting on/off, or "digital" signals. These signals
-  // will always be either 5 Volts (which we call "HIGH"), or
-  // 0 Volts (which we call "LOW").
+// The 13 digital pins on your Arduino are great at inputting
+// and outputting on/off, or "digital" signals. These signals
+// will always be either 5 Volts (which we call "HIGH"), or
+// 0 Volts (which we call "LOW").
 
-  // Because we have an LED connected to pin 13, if we make that
-  // output HIGH, the LED will get voltage and light up. If we make
-  // that output LOW, the LED will have no voltage and turn off.
+// Because we have an LED connected to pin 13, if we make that
+// output HIGH, the LED will get voltage and light up. If we make
+// that output LOW, the LED will have no voltage and turn off.
 
-  // digitalWrite() is the built-in function we use to make an
-  // output pin HIGH or LOW. It takes two values; a pin number,
-  // followed by the word HIGH or LOW:
+// digitalWrite() is the built-in function we use to make an
+// output pin HIGH or LOW. It takes two values; a pin number,
+// followed by the word HIGH or LOW:
 
 
-  // delay() is a function that pauses for a given amount of time.
-  // It takes one value, the amount of time to wait, measured in
-  // milliseconds. There are 1000 milliseconds in a second, so if
-  // you delay(1000), it will pause for exactly one second:
+// delay() is a function that pauses for a given amount of time.
+// It takes one value, the amount of time to wait, measured in
+// milliseconds. There are 1000 milliseconds in a second, so if
+// you "delay(1000)", it will pause for exactly one second.
 
-  // All together, the above code turns the LED on, waits one
-  // second, turns it off, and waits another second.
+// All together, the sketch turns the LED on, waits one
+// second, turns it off, and waits another second.
 
-  // When the computer gets to the end of the loop() function,
-  // it starts loop() over again. So this program will continue
-  // blinking the LED on and off!
+// When the computer gets to the end of the loop() function,
+// it starts loop() over again. So this program will continue
+// blinking the LED on and off!
 
 
 
