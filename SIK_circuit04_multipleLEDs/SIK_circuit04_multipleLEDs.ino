@@ -42,11 +42,11 @@ void loop()
 
   oneAfterAnother();  // Light up all the LEDs in turn
   
-  //oneOnAtATime();         // Turn on one LED at a time,
+  //oneOnAtATime();         // Turn on one LED at a time
   
-  //pingPong();             // Light the LEDs middle to the edges
+  //pingPong();             // Same as oneOnAtATime() but change direction once LED reaches edge
 
-  //marquee();              // Chase lights like you see on signs
+  //marquee();              // Chase lights like you see on theater signs
 
   //randomLED();            // Blink LEDs randomly
 }
@@ -67,14 +67,14 @@ void oneAfterAnother()
                        // make this smaller for faster switching
 
   // Turn all the LEDs on:  
-  for(index = 0; index <= 7; index = index++)  // step through index from 0 to 7
+  for(index = 0; index <= 7; index = ++index)  // step through index from 0 to 7
   {
     digitalWrite(ledPins[index], HIGH);
     delay(delayTime);                
   }                                  
 
   // Turn all the LEDs off: 
-  for(index = 7; index >= 0; index = index--)  // step through index from 7 to 0
+  for(index = 7; index >= 0; index = --index)  // step through index from 7 to 0
   {
     digitalWrite(ledPins[index], LOW);
     delay(delayTime);
@@ -95,14 +95,7 @@ void oneOnAtATime()
   int delayTime = 100; // milliseconds to pause between LEDs
                        // make this smaller for faster switching
   
-  for(index = 0; index <= 7; index = index ++)   // step through the LEDs, from 0 to 7
-  {
-    digitalWrite(ledPins[index], HIGH);  // turn LED on
-    delay(delayTime);                    // pause to slow down
-    digitalWrite(ledPins[index], LOW);   // turn LED off
-  }
-
-  for(index = 7; index >= 0; index = index --)   // step through the LEDs, from 7 to 0
+  for(index = 0; index <= 7; index = ++index)   // step through the LEDs, from 0 to 7
   {
     digitalWrite(ledPins[index], HIGH);  // turn LED on
     delay(delayTime);                    // pause to slow down
@@ -110,7 +103,6 @@ void oneOnAtATime()
   }
 }
 
- 
 /*****************************************************************
  * pingPong()
  * 
@@ -124,14 +116,14 @@ void pingPong()
   int index;
   int delayTime = 100; // milliseconds to pause between LEDs
    
-  for(index = 0; index <= 7; index = index ++)   // step through the LEDs, from 0 to 7
+  for(index = 0; index <= 7; index = ++index)   // step through the LEDs, from 0 to 7
   {
     digitalWrite(ledPins[index], HIGH);  // turn LED on
     delay(delayTime);                    // pause to slow down
     digitalWrite(ledPins[index], LOW);   // turn LED off
   }
  
-  for(index = 7; index >= 0; index = index --)   // step through the LEDs, from 7 to 0
+  for(index = 7; index >= 0; index = --index)   // step through the LEDs, from 7 to 0
   {
     digitalWrite(ledPins[index], HIGH);  // turn LED on
     delay(delayTime);                    // pause to slow down
@@ -142,7 +134,8 @@ void pingPong()
 /*****************************************************************
  * marquee()
  * 
- * This function will mimic "chase lights" like those around signs.
+ * This function will mimic "chase lights" like those around
+ * theater signs.
 /****************************************************************/
 void marquee()
 {
@@ -173,9 +166,9 @@ void randomLED()
   int index;
   int delayTime;
   
-  index = random(8);	// pick a random number between 0 and 7
+  index = random(8);  // pick a random number between 0 and 7
   delayTime = 100;
-	
+  
   digitalWrite(ledPins[index], HIGH);  // turn LED on
   delay(delayTime);                    // pause to slow down
   digitalWrite(ledPins[index], LOW);   // turn LED off
