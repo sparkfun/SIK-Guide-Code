@@ -45,7 +45,7 @@ void loop()
                                                   // the map() function applies a linear scale / offset.
                                                   // map(inputValue, fromMin, fromMax, toMin, toMax);
   Serial.print("\t"); 		  // tab character
-  Serial.print(calibratedlightLevel);   // println prints an CRLF at the end (creates a new line after)
+  Serial.println(calibratedlightLevel);   // println prints an CRLF at the end (creates a new line after)
 
   analogWrite(ledPin, calibratedlightLevel);    // set the led level based on the input lightLevel.
 }
