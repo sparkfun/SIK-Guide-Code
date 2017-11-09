@@ -1,14 +1,14 @@
-SparkFun Inventor's Kit - Example Sketches
+SparkFun Inventor's Kit V4.0 - Example Sketches
 ======================================================
 
-[![SparkFun Inventor's Kit](https://cdn.sparkfun.com/assets/parts/1/1/7/0/8/12060-01.jpg)  
-*SparkFun Inventor's Kit (KIT-13969)*](https://www.sparkfun.com/products/13969)
+[![SparkFun Inventor's Kit](https://cdn.sparkfun.com//assets/parts/1/2/2/2/0/SIK_V4-Kit_Shot.jpg)  
+*SparkFun Inventor's Kit V4.0(KIT-14265)*](https://www.sparkfun.com/products/13969)
 
-The example sketches in this repository are part of the SparkFun Inventor's Kit (a.k.a. *"The SIK"*). 
-The SIK consists of an [Arduino microcontroller](http://www.arduino.com) and a variety of electronic components designed to help you learn basic programming and circuits. 
-Once you've mastered these circuits, you'll be able to start building projects limited only by your imagination!
+The example sketches in this repository are part of the SparkFun Inventor's Kit (a.k.a. *"The SIK"*).
+The SIK consists of an [SparkFun RedBoard](http://www.arduino.com) and a variety of electronic components designed to help you learn basic programming and circuits.
+Build five projects comprised of 16 circuits as you navigate through the best inventor's kit yet! Once you've mastered these circuits, you'll be able to start building projects limited only by your imagination!
 
-These sketches are designed to work with the [SIK Experiment Guide](https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v33) tutorial. 
+These sketches are designed to work with the [SIK Experiment Guide](https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40) tutorial.
 
 
 Getting Started
@@ -27,29 +27,43 @@ Getting Started
 Sketch Topics
 -------------
 
-1.  Blinking an LED
-2.  Potentiometer (knob)
-3.  RGB (Red Green Blue) LED
-4.  Multiple LEDs
-5.  Push buttons
-6.  Photoresistor (light sensor)
-7.  Temperature sensor
-8.  Servomotor
-9.  Flex sensor
-10. Soft potentiometer
-11. Buzzer
-12. Motor
-13. Relay
-14. Shift register
-15. Using an LCD
-16. Simon Says
+#### Project 1
+* 1A Blink an LED
+* 1B Read a Potentiometer
+* 1C Night-light
+* 1D RGB Night-light
+
+#### Project 2
+
+* 2A Buzzer
+* 2B Digital Trumpet
+* 2C Simon Says Game
+
+#### Project 3
+
+* 3A Servo Motor
+* 3B Distance Sensor
+* 3C Motion Alarm
+
+##### Project 4
+
+* 4A LCD Hello World
+* 4B LCD Thermometer
+* 4C DIY Who Am I Game
+
+##### Project 5
+
+* 5A Motor Basics
+* 5B Remote-controlled Robot
+* 5C Autonomous Rover
 
 Documentation
 --------------
-* **[Hookup Guide](https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v33)** - Experiment Guide for the SIK.
+* **[Hookup Guide](https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40)** - Experiment Guide for the SIK.
 
 Version History
 ---------------
+* [v40](https://github.com/sparkfun/SIK-Guide-Code/tree/v40) -SIK code version 4.0
 * [v33](https://github.com/sparkfun/SIK-Guide-Code/tree/v33) -SIK code version 3.3
 * [v32](https://github.com/sparkfun/SIK-Guide-Code/tree/v32) -SIK code version 3.2
 * [v30](https://github.com/sparkfun/SIK-Guide-Code/tree/v30) -SIK code version 3.0
@@ -61,4 +75,4 @@ License Information
 
 These sketches were written by [SparkFun Electronics](https://www.sparkfun.com) with lots of help from the Arduino community.
 
-All contents of this repository are released under [Creative Commons Share-alike 3.0](http://creativecommons.org/licenses/by-sa/3.0/).
+All contents of this repository are released under [Creative Commons Share-alike 4.0](http://creativecommons.org/licenses/by-sa/4.0/).
