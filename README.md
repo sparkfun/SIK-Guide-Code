@@ -2,7 +2,7 @@ SparkFun Inventor's Kit V4.0 - Example Sketches
 ======================================================
 
 [![SparkFun Inventor's Kit](https://cdn.sparkfun.com//assets/parts/1/2/2/2/0/SIK_V4-Kit_Shot.jpg)  
-*SparkFun Inventor's Kit V4.0(KIT-14265)*](https://www.sparkfun.com/products/13969)
+*SparkFun Inventor's Kit V4.0(KIT-14265)*](https://www.sparkfun.com/products/14265)
 
 The example sketches in this repository are part of the SparkFun Inventor's Kit (a.k.a. *"The SIK"*).
 The SIK consists of an [SparkFun RedBoard](http://www.arduino.com) and a variety of electronic components designed to help you learn basic programming and circuits.
