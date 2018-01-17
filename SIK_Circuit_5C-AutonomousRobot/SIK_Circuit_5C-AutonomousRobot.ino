@@ -14,23 +14,22 @@ View circuit diagram and instructions at: https://learn.sparkfun.com/tutorials/s
 Download drawings and code at: https://github.com/sparkfun/SIK-Guide-Code
 */
 
-//distance variables
 
-const int trigPin = 6;
-const int echoPin = 5;
-
-
-//the left motor will be controlled by the motor B pins on the motor driver
-const int PWMB = 8;           //speed control pin on the motor driver for the left motor
-const int BIN2 = 9;           //control pin 2 on the motor driver for the left motor
-const int BIN1 = 10;           //control pin 1 on the motor driver for the left motor
 
 //the right motor will be controlled by the motor A pins on the motor driver
-const int AIN1 = 11;           //control pin 1 on the motor driver for the right motor
+const int AIN1 = 13;           //control pin 1 on the motor driver for the right motor
 const int AIN2 = 12;            //control pin 2 on the motor driver for the right motor
-const int PWMA = 13;            //speed control pin on the motor driver for the right motor
+const int PWMA = 11;            //speed control pin on the motor driver for the right motor
+
+//the left motor will be controlled by the motor B pins on the motor driver
+const int PWMB = 10;           //speed control pin on the motor driver for the left motor
+const int BIN2 = 9;           //control pin 2 on the motor driver for the left motor
+const int BIN1 = 8;           //control pin 1 on the motor driver for the left motor
 
 
+//distance variables
+const int trigPin = 6;
+const int echoPin = 5;
 
 int switchPin = 7;             //switch to turn the robot on and off
 
@@ -89,9 +88,9 @@ void loop()
       leftMotor(-255);
       delay(backupTime);
 
-      //turn to the right
-      rightMotor(-255);
-      leftMotor(255);    
+      //turn away from obsticle 
+      rightMotor(255);
+      leftMotor(-255);    
       delay(turnTime);
 
     }else{                         //if no obstacle is detected drive forward

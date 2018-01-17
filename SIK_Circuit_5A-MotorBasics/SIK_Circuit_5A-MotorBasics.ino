@@ -13,9 +13,9 @@ Download drawings and code at: https://github.com/sparkfun/SIK-Guide-Code
 
 //PIN VARIABLES
 //the motor will be controlled by the motor A pins on the motor driver
-const int AIN1 = 11;           //control pin 1 on the motor driver for the right motor
+const int AIN1 = 13;           //control pin 1 on the motor driver for the right motor
 const int AIN2 = 12;            //control pin 2 on the motor driver for the right motor
-const int PWMA = 13;            //speed control pin on the motor driver for the right motor
+const int PWMA = 11;            //speed control pin on the motor driver for the right motor
 
 int switchPin = 7;             //switch to turn the robot on and off
 

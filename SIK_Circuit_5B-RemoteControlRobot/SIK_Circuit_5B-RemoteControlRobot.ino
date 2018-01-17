@@ -14,15 +14,18 @@ View circuit diagram and instructions at: https://learn.sparkfun.com/tutorials/s
 Download drawings and code at: https://github.com/sparkfun/SIK-Guide-Code
 */
 
-//the left motor will be controlled by the motor B pins on the motor driver
-const int PWMB = 13;           //speed control pin on the motor driver for the left motor
-const int BIN2 = 12;           //control pin 2 on the motor driver for the left motor
-const int BIN1 = 11;           //control pin 1 on the motor driver for the left motor
 
 //the right motor will be controlled by the motor A pins on the motor driver
-const int AIN1 = 10;           //control pin 1 on the motor driver for the right motor
-const int AIN2 = 9;            //control pin 2 on the motor driver for the right motor
-const int PWMA = 8;            //speed control pin on the motor driver for the right motor
+const int AIN1 = 13;           //control pin 1 on the motor driver for the right motor
+const int AIN2 = 12;            //control pin 2 on the motor driver for the right motor
+const int PWMA = 11;            //speed control pin on the motor driver for the right motor
+
+//the left motor will be controlled by the motor B pins on the motor driver
+const int PWMB = 10;           //speed control pin on the motor driver for the left motor
+const int BIN2 = 9;           //control pin 2 on the motor driver for the left motor
+const int BIN1 = 8;           //control pin 1 on the motor driver for the left motor
+
+int switchPin = 7;             //switch to turn the robot on and off
 
 const int driveTime = 20;      //this is the number of milliseconds that it takes the robot to drive 1 inch
                                //it is set so that if you tell the robot to drive forward 25 units, the robot drives about 25 inches
@@ -40,6 +43,8 @@ String distance;               //the distance to travel in each direction
 /********************************************************************************/
 void setup()
 {
+  pinMode(switchPin, INPUT_PULLUP);   //set this as a pullup to sense whether the switch is flipped
+
   //set the motor contro pins as outputs
   pinMode(AIN1, OUTPUT);
   pinMode(AIN2, OUTPUT);
@@ -48,7 +53,7 @@ void setup()
   pinMode(BIN1, OUTPUT);
   pinMode(BIN2, OUTPUT);
   pinMode(PWMB, OUTPUT);
-  
+
   Serial.begin(9600);           //begin serial communication with the computer
 
   //prompt the user to enter a command
@@ -60,48 +65,56 @@ void setup()
 /********************************************************************************/
 void loop()
 {
-  if (Serial.available() > 0)                         //if the user has sent a command to the RedBoard
+  if(digitalRead(7) == LOW)
+  {                                                     //if the switch is in the ON position 
+    if (Serial.available() > 0)                         //if the user has sent a command to the RedBoard
+    {
+      botDirection = Serial.readStringUntil(' ');       //read the characters in the command until you reach the first space
+      distance = Serial.readStringUntil(' ');           //read the characters in the command until yuo reach the second space
+  
+      //print the command that was just received in the serial monitor
+      Serial.print(botDirection);                       
+      Serial.print(" ");                                
+      Serial.println(distance.toInt());                 
+  
+      if(botDirection == "f")                          //if the entered direction is forward                          
+      {
+        rightMotor(200);                                //drive the right wheel forward
+        leftMotor(200);                                 //drive the left wheel forward
+        delay(driveTime * distance.toInt());            //drive the motors long enough travel the entered distance
+        rightMotor(0);                                  //turn the right motor off
+        leftMotor(0);                                   //turn the left motor off
+      }
+      else if(botDirection == "b")                     //if the entered direction is backward  
+      {
+        rightMotor(-200);                               //drive the right wheel forward
+        leftMotor(-200);                                //drive the left wheel forward
+        delay(driveTime * distance.toInt());            //drive the motors long enough travel the entered distance
+        rightMotor(0);                                  //turn the right motor off
+        leftMotor(0);                                   //turn the left motor off
+      }
+      else if(botDirection == "r")                      //if the entered direction is right  
+      {
+        rightMotor(-200);                               //drive the right wheel forward
+        leftMotor(255);                                 //drive the left wheel forward
+        delay(turnTime * distance.toInt());             //drive the motors long enough turn the entered distance
+        rightMotor(0);                                  //turn the right motor off
+        leftMotor(0);                                   //turn the left motor off
+      }
+      else if(botDirection == "l")                    //if the entered direction is left  
+      { 
+        rightMotor(255);                                //drive the right wheel forward
+        leftMotor(-200);                                //drive the left wheel forward
+        delay(turnTime * distance.toInt());             //drive the motors long enough turn the entered distance
+        rightMotor(0);                                  //turn the right motor off
+        leftMotor(0);                                   //turn the left motor off
+      }
+    }
+  }
+  else
   {
-    botDirection = Serial.readStringUntil(' ');       //read the characters in the command until you reach the first space
-    distance = Serial.readStringUntil(' ');           //read the characters in the command until yuo reach the second space
-    
-    //print the command that was just received in the serial monitor
-    Serial.print(botDirection);                       
-    Serial.print(" ");                                
-    Serial.println(distance.toInt());                 
-    
-    if(botDirection == "f")                          //if the entered direction is forward                          
-    {
-      rightMotor(200);                                //drive the right wheel forward
-      leftMotor(200);                                 //drive the left wheel forward
-      delay(driveTime * distance.toInt());            //drive the motors long enough travel the entered distance
-      rightMotor(0);                                  //turn the right motor off
-      leftMotor(0);                                   //turn the left motor off
-    }
-    else if(botDirection == "b")                     //if the entered direction is backward  
-    {
-      rightMotor(-200);                               //drive the right wheel forward
-      leftMotor(-200);                                //drive the left wheel forward
-      delay(driveTime * distance.toInt());            //drive the motors long enough travel the entered distance
-      rightMotor(0);                                  //turn the right motor off
-      leftMotor(0);                                   //turn the left motor off
-    }
-    else if(botDirection == "l")                      //if the entered direction is right  
-    {
-      rightMotor(-200);                               //drive the right wheel forward
-      leftMotor(255);                                 //drive the left wheel forward
-      delay(turnTime * distance.toInt());             //drive the motors long enough turn the entered distance
-      rightMotor(0);                                  //turn the right motor off
-      leftMotor(0);                                   //turn the left motor off
-    }
-    else if(botDirection == "r")                    //if the entered direction is left  
-    { 
-      rightMotor(255);                                //drive the right wheel forward
-      leftMotor(-200);                                //drive the left wheel forward
-      delay(turnTime * distance.toInt());             //drive the motors long enough turn the entered distance
-      rightMotor(0);                                  //turn the right motor off
-      leftMotor(0);                                   //turn the left motor off
-    }
+     rightMotor(0);                                  //turn the right motor off
+     leftMotor(0);                                   //turn the left motor off 
   }
 }
 /********************************************************************************/
