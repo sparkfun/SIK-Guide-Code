@@ -11,8 +11,8 @@ View circuit diagram and instructions at: https://learn.sparkfun.com/tutorials/s
 Download drawings and code at: https://github.com/sparkfun/SIK-Guide-Code
 */
 
-const int trigPin = 11;           //connects to the echo pin on the distance sensor       
-const int echoPin = 12;           //connects to the trigger pin on the distance sensor     
+const int trigPin = 11;           //connects to the trigger pin on the distance sensor       
+const int echoPin = 12;           //connects to the echo pin on the distance sensor     
 
 const int redPin = 3;             //pin to control the red LED inside the RGB LED
 const int greenPin = 5;           //pin to control the green LED inside the RGB LED
