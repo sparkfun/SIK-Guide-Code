@@ -13,7 +13,7 @@ Download drawings and code at: https://github.com/sparkfun/SIK-Guide-Code
  */
 
 int photoresistor = A0;          //variable for storing the photoresistor value
-int potentiometer = A1;          //variable for storing the photoresistor value
+int potentiometer = A1;          //this variable will hold a value based on the position of the knob
 int threshold = 700;            //if the photoresistor reading is lower than this value the light wil turn on
 
 //LEDs are connected to these pins
@@ -38,7 +38,7 @@ void loop() {
   Serial.print("Photoresistor value:");
   Serial.print(photoresistor);          //print the photoresistor value to the serial monitor
   Serial.print("  Potentiometer value:");
-  Serial.println(potentiometer);          //print the photoresistor value to the serial monitor
+  Serial.println(potentiometer);          //print the potentiometer value to the serial monitor
   
   if(photoresistor < threshold){          //if it's dark (the photoresistor value is below the threshold) turn the LED on
     //These nested if staments check for a variety of ranges and 
