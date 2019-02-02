@@ -11,7 +11,7 @@
   Download drawings and code at: https://github.com/sparkfun/SIK-Guide-Code
 */
 
-//set the pins where the butons, LEDs and buzzer connect
+//set the pins where the buttons, LEDs and buzzer connect
 int button[] = {2, 4, 6, 8};  //red is button[0], yellow is button[1], green is button[2], blue is button[3]
 int led[] = {3, 5, 7, 9};     //red is led[0], yellow is led[1], green is led[2], blue is led[3]
 int tones[] = {262, 330, 392, 494};   //tones to play with each button (c, e, g, b)
@@ -32,7 +32,7 @@ boolean gameStarted = false;      //variable to tell the game whether or not to 
 
 void setup() {
 
-  //set all of the button pins to input_pullup (use the builtin pullup resistors)
+  //set all of the button pins to input_pullup (use the built-in pull-up resistors)
   pinMode(button[0], INPUT_PULLUP);
   pinMode(button[1], INPUT_PULLUP);
   pinMode(button[2], INPUT_PULLUP);

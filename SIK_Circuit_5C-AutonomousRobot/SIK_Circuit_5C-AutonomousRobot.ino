@@ -48,7 +48,7 @@ void setup()
   pinMode(switchPin, INPUT_PULLUP);   //set this as a pullup to sense whether the switch is flipped
 
 
-  //set the motor contro pins as outputs
+  //set the motor control pins as outputs
   pinMode(AIN1, OUTPUT);
   pinMode(AIN2, OUTPUT);
   pinMode(PWMA, OUTPUT);
@@ -88,7 +88,7 @@ void loop()
       leftMotor(-255);
       delay(backupTime);
 
-      //turn away from obsticle 
+      //turn away from obstacle 
       rightMotor(255);
       leftMotor(-255);    
       delay(turnTime);
@@ -119,7 +119,7 @@ void rightMotor(int motorSpeed)                       //function for driving the
     digitalWrite(AIN1, HIGH);                         //set pin 1 to high
     digitalWrite(AIN2, LOW);                          //set pin 2 to low
   }
-  else if (motorSpeed < 0)                            //if the motor should drive backwar (negative speed)
+  else if (motorSpeed < 0)                            //if the motor should drive backward (negative speed)
   {
     digitalWrite(AIN1, LOW);                          //set pin 1 to low
     digitalWrite(AIN2, HIGH);                         //set pin 2 to high
@@ -140,7 +140,7 @@ void leftMotor(int motorSpeed)                        //function for driving the
     digitalWrite(BIN1, HIGH);                         //set pin 1 to high
     digitalWrite(BIN2, LOW);                          //set pin 2 to low
   }
-  else if (motorSpeed < 0)                            //if the motor should drive backwar (negative speed)
+  else if (motorSpeed < 0)                            //if the motor should drive backward (negative speed)
   {
     digitalWrite(BIN1, LOW);                          //set pin 1 to low
     digitalWrite(BIN2, HIGH);                         //set pin 2 to high

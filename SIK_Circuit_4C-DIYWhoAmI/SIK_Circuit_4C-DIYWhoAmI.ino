@@ -15,14 +15,14 @@ View circuit diagram and instructions at: https://learn.sparkfun.com/tutorials/s
 Download drawings and code at: https://github.com/sparkfun/SIK-Guide-Code
 */
 
-#include <LiquidCrystal.h>            //the liquid crystal libarry contains commands for printing to the display
+#include <LiquidCrystal.h>            //the liquid crystal library contains commands for printing to the display
 LiquidCrystal lcd(13, 12, 11, 10, 9, 8);     // tell the RedBoard what pins are connected to the display
 
 int buttonPin = 2;                    //pin that the button is connected to
 int buzzerPin = 6;                    //pin for driving the buzzer
 int buttonPressTime = 0;              //variable to show how much time the player has left to guess the word (and press the button)
                         
-long timeLimit = 15000;               //time limit for the playe to guess each word
+long timeLimit = 15000;               //time limit for the player to guess each word
 long startTime = 0;                   //used to measure time that has passed for each word
 int roundNumber = 0;                        //keeps track of the roundNumber so that it can be displayed at the end of the game
 const int arraySize = 25;
@@ -77,7 +77,7 @@ void loop() {
         
       }                       //exit this loop when the button is pressed
 
-      delay(500);             //delay for a moment before giong on to the next ruond, so that the button press doesn't get registered twice
+      delay(500);             //delay for a moment before going onto the next round, so that the button press doesn't get registered twice
       
     }
   //if you finish all 25 words
@@ -117,17 +117,17 @@ void showStartSequence(){
   delay(1000);                  //wait 1 second
 }
 
-//GERNATES A RANDOM ORDER FOR THE WORDS TO BE DISPLAYED
+//GENERATES A RANDOM ORDER FOR THE WORDS TO BE DISPLAYED
 void generateRandomOrder(){
   
-  randomSeed(analogRead(0));            //reset the random seed (Arduino needs this to generate truely random numbers
+  randomSeed(analogRead(0));            //reset the random seed (Arduino needs this to generate truly random numbers
   
   for (int i = 0; i < 24; i++){         //do this until all 25 positions are filled
     
     int currentNumber = 0;              //variable to hold the current number
     boolean match = false;              //does the currentNumber match any of the previous numbers?
 
-    //generate random numbers until you've generated one that doesn't match any of the other numbers in the arary
+    //generate random numbers until you've generated one that doesn't match any of the other numbers in the array
     do {                                       
       currentNumber = random(0,arraySize);             //generate a random number from 1-25
       match = false;                            //we haven't checked for matches yet, so start by assuming that it doesn't match
