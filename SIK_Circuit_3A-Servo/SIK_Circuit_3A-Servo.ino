@@ -2,7 +2,7 @@
 SparkFun Inventor’s Kit
 Circuit 3A-Servo
 
-Move a servo attached to pin 9 so that it's angle matches a potentitometer attached to A0.
+Move a servo attached to pin 9 so that it's angle matches a potentiometer attached to A0.
 
 This sketch was written by SparkFun Electronics, with lots of help from the Arduino community.
 This code is completely free for any use.

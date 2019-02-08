@@ -28,9 +28,9 @@ void loop()
 
   //change the LED blink speed based on the pot value
   digitalWrite(13, HIGH);           // Turn on the LED
-  delay(potPosition);              // delay for as many miliseconds as potPosition (0-1023)
+  delay(potPosition);              // delay for as many milliseconds as potPosition (0-1023)
 
   digitalWrite(13, LOW);            // Turn off the LED
-  delay(potPosition);              // delay for as many miliseconds as potPosition (0-1023)
+  delay(potPosition);              // delay for as many milliseconds as potPosition (0-1023)
 }
 

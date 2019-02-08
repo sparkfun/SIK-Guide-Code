@@ -37,7 +37,7 @@ const int turnTime = 8;        //this is the number of milliseconds that it take
                                //surface that your driving on, and fluctuations in the power to the motors.
                                //You can change the driveTime and turnTime to make them more accurate
 
-String botDirection;           //the direction that the roobt will drive in (this change which direction the two motors spin in)
+String botDirection;           //the direction that the robot will drive in (this change which direction the two motors spin in)
 String distance;               //the distance to travel in each direction
 
 /********************************************************************************/
@@ -45,7 +45,7 @@ void setup()
 {
   pinMode(switchPin, INPUT_PULLUP);   //set this as a pullup to sense whether the switch is flipped
 
-  //set the motor contro pins as outputs
+  //set the motor control pins as outputs
   pinMode(AIN1, OUTPUT);
   pinMode(AIN2, OUTPUT);
   pinMode(PWMA, OUTPUT);
@@ -57,7 +57,7 @@ void setup()
   Serial.begin(9600);           //begin serial communication with the computer
 
   //prompt the user to enter a command
-  Serial.println("Enter a diretion followed by a distance.");
+  Serial.println("Enter a direction followed by a distance.");
   Serial.println("f = forward, b = backward, r = turn right, l = turn left");
   Serial.println("Example command: f 50");
 }
@@ -70,7 +70,7 @@ void loop()
     if (Serial.available() > 0)                         //if the user has sent a command to the RedBoard
     {
       botDirection = Serial.readStringUntil(' ');       //read the characters in the command until you reach the first space
-      distance = Serial.readStringUntil(' ');           //read the characters in the command until yuo reach the second space
+      distance = Serial.readStringUntil(' ');           //read the characters in the command until you reach the second space
   
       //print the command that was just received in the serial monitor
       Serial.print(botDirection);                       
@@ -125,7 +125,7 @@ void rightMotor(int motorSpeed)                       //function for driving the
     digitalWrite(AIN1, HIGH);                         //set pin 1 to high
     digitalWrite(AIN2, LOW);                          //set pin 2 to low
   }
-  else if (motorSpeed < 0)                            //if the motor should drive backwar (negative speed)
+  else if (motorSpeed < 0)                            //if the motor should drive backward (negative speed)
   {
     digitalWrite(AIN1, LOW);                          //set pin 1 to low
     digitalWrite(AIN2, HIGH);                         //set pin 2 to high
@@ -146,7 +146,7 @@ void leftMotor(int motorSpeed)                        //function for driving the
     digitalWrite(BIN1, HIGH);                         //set pin 1 to high
     digitalWrite(BIN2, LOW);                          //set pin 2 to low
   }
-  else if (motorSpeed < 0)                            //if the motor should drive backwar (negative speed)
+  else if (motorSpeed < 0)                            //if the motor should drive backward (negative speed)
   {
     digitalWrite(BIN1, LOW);                          //set pin 1 to low
     digitalWrite(BIN2, HIGH);                         //set pin 2 to high
