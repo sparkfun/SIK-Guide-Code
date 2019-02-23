@@ -1,17 +1,17 @@
 /*
-SparkFun Inventor’s Kit
-Circuit 5C - Autonomous Robot
+  SparkFun Inventor’s Kit
+  Circuit 5C - Autonomous Robot
 
-This robot will drive around on its own and react to obstacles by backing up and turning to a new direction.
-This sketch was adapted from one of the activities in the SparkFun Guide to Arduino.
-Check out the rest of the book at
-https://www.sparkfun.com/products/14326
+  This robot will drive around on its own and react to obstacles by backing up and turning to a new direction.
+  This sketch was adapted from one of the activities in the SparkFun Guide to Arduino.
+  Check out the rest of the book at
+  https://www.sparkfun.com/products/14326
 
-This sketch was written by SparkFun Electronics, with lots of help from the Arduino community.
-This code is completely free for any use.
+  This sketch was written by SparkFun Electronics, with lots of help from the Arduino community.
+  This code is completely free for any use.
 
-View circuit diagram and instructions at: https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40
-Download drawings and code at: https://github.com/sparkfun/SIK-Guide-Code
+  View circuit diagram and instructions at: https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40
+  Download drawings and code at: https://github.com/sparkfun/SIK-Guide-Code
 */
 
 
@@ -71,9 +71,9 @@ void loop()
   Serial.print(distance);
   Serial.println(" in");              // print the units
 
-  if(digitalRead(switchPin) == LOW){  //if the on switch is flipped
+  if (digitalRead(switchPin) == LOW) { //if the on switch is flipped
 
-    if(distance < 10){                //if an object is detected
+    if (distance < 10) {              //if an object is detected
       //back up and turn
       Serial.print(" ");
       Serial.print("BACK!");
@@ -88,12 +88,12 @@ void loop()
       leftMotor(-255);
       delay(backupTime);
 
-      //turn away from obstacle 
+      //turn away from obstacle
       rightMotor(255);
-      leftMotor(-255);    
+      leftMotor(-255);
       delay(turnTime);
 
-    }else{                         //if no obstacle is detected drive forward
+    } else {                        //if no obstacle is detected drive forward
       Serial.print(" ");
       Serial.print("Moving...");
 
@@ -101,11 +101,11 @@ void loop()
       rightMotor(255);
       leftMotor(255);
     }
-  } else{                         //if the switch is off then stop
+  } else {                        //if the switch is off then stop
 
-      //stop the motors
-      rightMotor(0);
-      leftMotor(0);
+    //stop the motors
+    rightMotor(0);
+    leftMotor(0);
   }
 
   delay(50);                      //wait 50 milliseconds between readings
@@ -162,14 +162,13 @@ float getDistance()
 
   //send out an ultrasonic pulse that's 10ms long
   digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10); 
+  delayMicroseconds(10);
   digitalWrite(trigPin, LOW);
 
   echoTime = pulseIn(echoPin, HIGH);      //use the pulsein command to see how long it takes for the
-                                          //pulse to bounce back to the sensor
+  //pulse to bounce back to the sensor
 
   calculatedDistance = echoTime / 148.0;  //calculate the distance of the object that reflected the pulse (half the bounce time multiplied by the speed of sound)
 
   return calculatedDistance;              //send back the distance that was calculated
 }
-

@@ -1,14 +1,14 @@
 /*
-SparkFun Inventor’s Kit
-Circuit 2B-ButtonTrumpet
+  SparkFun Inventor’s Kit
+  Circuit 2B-ButtonTrumpet
 
-Use 3 buttons plugged to play musical notes on a buzzer.
+  Use 3 buttons plugged to play musical notes on a buzzer.
 
-This sketch was written by SparkFun Electronics, with lots of help from the Arduino community.
-This code is completely free for any use.
+  This sketch was written by SparkFun Electronics, with lots of help from the Arduino community.
+  This code is completely free for any use.
 
-View circuit diagram and instructions at: https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40
-Download drawings and code at: https://github.com/sparkfun/SIK-Guide-Code
+  View circuit diagram and instructions at: https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40
+  Download drawings and code at: https://github.com/sparkfun/SIK-Guide-Code
 */
 
 //set the pins for the button and buzzer
@@ -30,22 +30,22 @@ void setup() {
 }
 
 void loop() {
-  
-  if(digitalRead(firstKeyPin) == LOW){        //if the first key is pressed
+
+  if (digitalRead(firstKeyPin) == LOW) {      //if the first key is pressed
     tone(buzzerPin, 262);                     //play the frequency for c
   }
-  else if(digitalRead(secondKeyPin) == LOW){  //if the second key is pressed
+  else if (digitalRead(secondKeyPin) == LOW) { //if the second key is pressed
     tone(buzzerPin, 330);                     //play the frequency for e
   }
-  else if(digitalRead(thirdKeyPin) == LOW){   //if the third key is pressed
+  else if (digitalRead(thirdKeyPin) == LOW) { //if the third key is pressed
     tone(buzzerPin, 392);                     //play the frequency for g
   }
-  else{
+  else {
     noTone(buzzerPin);                        //if no key is pressed turn the buzzer off
   }
 }
 
-  /*
+/*
   note  frequency
   c     262 Hz
   d     294 Hz
@@ -55,5 +55,4 @@ void loop() {
   a     440 Hz
   b     494 Hz
   C     523 Hz
-  */
-
+*/
