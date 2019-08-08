@@ -64,7 +64,7 @@ Documentation
 
 Version History
 ---------------
-* [v41](https://github.com/sparkfun/SIK-Guide-Code/tree/v40) -SIK code version 4.1
+* [v41](https://github.com/sparkfun/SIK-Guide-Code/tree/v41) -SIK code version 4.1
 * [v40](https://github.com/sparkfun/SIK-Guide-Code/tree/v40) -SIK code version 4.0
 * [v33](https://github.com/sparkfun/SIK-Guide-Code/tree/v33) -SIK code version 3.3
 * [v32](https://github.com/sparkfun/SIK-Guide-Code/tree/v32) -SIK code version 3.2
