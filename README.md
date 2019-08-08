@@ -59,6 +59,7 @@ Sketch Topics
 
 Documentation
 --------------
+* **[How to Install CH340 Drivers](https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers)** - CH340 Drivers for the RedBoard Qwiic
 * **[Hookup Guide](https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v41)** - Experiment Guide for the SIK.
 
 Version History
