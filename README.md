@@ -63,6 +63,7 @@ Documentation
 * **[How to Install CH340 Drivers](https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers)** - CH340 Drivers for the RedBoard Qwiic.
 * **[Hookup Guide](https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v41)** - Online experiment guide for the SIK.
 * **[Printed Guidebook](https://github.com/sparkfun/SIK_Guide)** - Archives of the printed guidebook in PDF format.
+* **[SIK Errata](https://www.sparkfun.com/SIKerrata)** - Known errors in SIK printed guidebooks.
 
 Version History
 ---------------
