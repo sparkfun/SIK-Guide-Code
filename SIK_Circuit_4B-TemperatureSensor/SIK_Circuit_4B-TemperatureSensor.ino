@@ -26,7 +26,7 @@ void setup() {
 
 void loop() {
 
-  voltage = analogRead(A0) * 0.004882814;   //convert the analog reading, which varies from 0 to 1023, back to a voltage value from 0-5 volts
+  voltage = analogRead(A0) * 0.004882813;   //convert the analog reading, which varies from 0 to 1023, back to a voltage value from 0-5 volts
   degreesC = (voltage - 0.5) * 100.0;       //convert the voltage to a temperature in degrees Celsius
   degreesF = degreesC * (9.0 / 5.0) + 32.0; //convert the voltage to a temperature in degrees Fahrenheit
 
