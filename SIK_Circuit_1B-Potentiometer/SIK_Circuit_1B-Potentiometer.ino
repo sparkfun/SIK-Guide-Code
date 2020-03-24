@@ -1,14 +1,14 @@
 /*
-SparkFun Inventor’s Kit
-Circuit 1B-Potentiometer
+  SparkFun Inventor’s Kit
+  Circuit 1B-Potentiometer
 
-Changes how fast an LED connected to pin 13 blinks, based on a potentiometer connected to pin A0
+  Changes how fast an LED connected to pin 13 blinks, based on a potentiometer connected to pin A0
 
-This sketch was written by SparkFun Electronics, with lots of help from the Arduino community.
-This code is completely free for any use.
+  This sketch was written by SparkFun Electronics, with lots of help from the Arduino community.
+  This code is completely free for any use.
 
-View circuit diagram and instructions at: https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40
-Download code at: https://github.com/sparkfun/SIK-Guide-Code
+  View circuit diagram and instructions at: https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40
+  Download code at: https://github.com/sparkfun/SIK-Guide-Code
 */
 
 int potPosition;       //this variable will hold a value based on the position of the potentiometer
@@ -16,7 +16,7 @@ int potPosition;       //this variable will hold a value based on the position o
 void setup()
 {
   Serial.begin(9600);       //start a serial connection with the computer
-  
+
   pinMode(13, OUTPUT);      //set pin 13 as an output that can be set to HIGH or LOW
 }
 

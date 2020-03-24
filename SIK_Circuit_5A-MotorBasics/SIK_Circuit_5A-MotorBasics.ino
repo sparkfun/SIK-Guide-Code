@@ -1,14 +1,14 @@
 /*
-SparkFun Inventor’s Kit
-Circuit 5A - Motor Basics
+  SparkFun Inventor’s Kit
+  Circuit 5A - Motor Basics
 
-Learn how to control one motor with the motor driver. 
+  Learn how to control one motor with the motor driver.
 
-This sketch was written by SparkFun Electronics, with lots of help from the Arduino community.
-This code is completely free for any use.
+  This sketch was written by SparkFun Electronics, with lots of help from the Arduino community.
+  This code is completely free for any use.
 
-View circuit diagram and instructions at: https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40
-Download drawings and code at: https://github.com/sparkfun/SIK-Guide-Code
+  View circuit diagram and instructions at: https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40
+  Download drawings and code at: https://github.com/sparkfun/SIK-Guide-Code
 */
 
 //PIN VARIABLES
@@ -36,21 +36,21 @@ void setup() {
 }
 
 void loop() {
-  
-  if (Serial.available() > 0){          //if the user has entered something in the serial monitor
+
+  if (Serial.available() > 0) {         //if the user has entered something in the serial monitor
     motorSpeed = Serial.parseInt();     //set the motor speed equal to the number in the serial message
 
     Serial.print("Motor Speed: ");      //print the speed that the motor is set to run at
     Serial.println(motorSpeed);
   }
 
-  if(digitalRead(7) == LOW){            //if the switch is on...
-      spinMotor(motorSpeed);
-  } else{                               //if the switch is off...
-      spinMotor(0);                   //turn the motor off
+  if (digitalRead(7) == LOW) {          //if the switch is on...
+    spinMotor(motorSpeed);
+  } else {                              //if the switch is off...
+    spinMotor(0);                   //turn the motor off
   }
 
-  
+
 }
 
 /********************************************************************************/

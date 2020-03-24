@@ -1,17 +1,17 @@
 /*
-SparkFun Inventor’s Kit
-Circuit 5B - Remote Control Robot
+  SparkFun Inventor’s Kit
+  Circuit 5B - Remote Control Robot
 
-Control a two wheeled robot by sending direction commands through the serial monitor.
-This sketch was adapted from one of the activities in the SparkFun Guide to Arduino.
-Check out the rest of the book at
-https://www.sparkfun.com/products/14326
+  Control a two wheeled robot by sending direction commands through the serial monitor.
+  This sketch was adapted from one of the activities in the SparkFun Guide to Arduino.
+  Check out the rest of the book at
+  https://www.sparkfun.com/products/14326
 
-This sketch was written by SparkFun Electronics, with lots of help from the Arduino community.
-This code is completely free for any use.
+  This sketch was written by SparkFun Electronics, with lots of help from the Arduino community.
+  This code is completely free for any use.
 
-View circuit diagram and instructions at: https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40
-Download drawings and code at: https://github.com/sparkfun/SIK-Guide-Code
+  View circuit diagram and instructions at: https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40
+  Download drawings and code at: https://github.com/sparkfun/SIK-Guide-Code
 */
 
 
@@ -28,14 +28,14 @@ const int BIN1 = 8;           //control pin 1 on the motor driver for the left m
 int switchPin = 7;             //switch to turn the robot on and off
 
 const int driveTime = 20;      //this is the number of milliseconds that it takes the robot to drive 1 inch
-                               //it is set so that if you tell the robot to drive forward 25 units, the robot drives about 25 inches
+//it is set so that if you tell the robot to drive forward 25 units, the robot drives about 25 inches
 
 const int turnTime = 8;        //this is the number of milliseconds that it takes to turn the robot 1 degree
-                               //it is set so that if you tell the robot to turn right 90 units, the robot turns about 90 degrees
+//it is set so that if you tell the robot to turn right 90 units, the robot turns about 90 degrees
 
-                               //Note: these numbers will vary a little bit based on how you mount your motors, the friction of the
-                               //surface that your driving on, and fluctuations in the power to the motors.
-                               //You can change the driveTime and turnTime to make them more accurate
+//Note: these numbers will vary a little bit based on how you mount your motors, the friction of the
+//surface that your driving on, and fluctuations in the power to the motors.
+//You can change the driveTime and turnTime to make them more accurate
 
 String botDirection;           //the direction that the robot will drive in (this change which direction the two motors spin in)
 String distance;               //the distance to travel in each direction
@@ -65,19 +65,19 @@ void setup()
 /********************************************************************************/
 void loop()
 {
-  if(digitalRead(7) == LOW)
-  {                                                     //if the switch is in the ON position 
+  if (digitalRead(7) == LOW)
+  { //if the switch is in the ON position
     if (Serial.available() > 0)                         //if the user has sent a command to the RedBoard
     {
       botDirection = Serial.readStringUntil(' ');       //read the characters in the command until you reach the first space
       distance = Serial.readStringUntil(' ');           //read the characters in the command until you reach the second space
-  
+
       //print the command that was just received in the serial monitor
-      Serial.print(botDirection);                       
-      Serial.print(" ");                                
-      Serial.println(distance.toInt());                 
-  
-      if(botDirection == "f")                          //if the entered direction is forward                          
+      Serial.print(botDirection);
+      Serial.print(" ");
+      Serial.println(distance.toInt());
+
+      if (botDirection == "f")                         //if the entered direction is forward
       {
         rightMotor(200);                                //drive the right wheel forward
         leftMotor(200);                                 //drive the left wheel forward
@@ -85,7 +85,7 @@ void loop()
         rightMotor(0);                                  //turn the right motor off
         leftMotor(0);                                   //turn the left motor off
       }
-      else if(botDirection == "b")                     //if the entered direction is backward  
+      else if (botDirection == "b")                    //if the entered direction is backward
       {
         rightMotor(-200);                               //drive the right wheel forward
         leftMotor(-200);                                //drive the left wheel forward
@@ -93,7 +93,7 @@ void loop()
         rightMotor(0);                                  //turn the right motor off
         leftMotor(0);                                   //turn the left motor off
       }
-      else if(botDirection == "r")                      //if the entered direction is right  
+      else if (botDirection == "r")                     //if the entered direction is right
       {
         rightMotor(-200);                               //drive the right wheel forward
         leftMotor(255);                                 //drive the left wheel forward
@@ -101,8 +101,8 @@ void loop()
         rightMotor(0);                                  //turn the right motor off
         leftMotor(0);                                   //turn the left motor off
       }
-      else if(botDirection == "l")                    //if the entered direction is left  
-      { 
+      else if (botDirection == "l")                   //if the entered direction is left
+      {
         rightMotor(255);                                //drive the right wheel forward
         leftMotor(-200);                                //drive the left wheel forward
         delay(turnTime * distance.toInt());             //drive the motors long enough turn the entered distance
@@ -113,8 +113,8 @@ void loop()
   }
   else
   {
-     rightMotor(0);                                  //turn the right motor off
-     leftMotor(0);                                   //turn the left motor off 
+    rightMotor(0);                                  //turn the right motor off
+    leftMotor(0);                                   //turn the left motor off
   }
 }
 /********************************************************************************/
