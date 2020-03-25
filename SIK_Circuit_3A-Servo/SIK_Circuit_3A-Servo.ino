@@ -31,8 +31,8 @@ void loop() {
   potPosition = analogRead(A0);                     //use analog read to measure the position of the potentiometer (0-1023)
 
   servoPosition = map(potPosition, 0, 1023, 20, 160); //convert the potentiometer number to a servo position from 20-160
-  //Note: its best to avoid driving the little SIK servos all the
-  //way to 0 or 180 degrees it can cause the motor to jitter, which is bad for the servo.
+                                                      //Note: its best to avoid driving the little SIK servos all the
+                                                      //way to 0 or 180 degrees it can cause the motor to jitter, which is bad for the servo.
 
   myservo.write(servoPosition);                      //move the servo to the 10 degree position
 }

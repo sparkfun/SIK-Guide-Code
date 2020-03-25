@@ -28,14 +28,14 @@ const int BIN1 = 8;           //control pin 1 on the motor driver for the left m
 int switchPin = 7;             //switch to turn the robot on and off
 
 const int driveTime = 20;      //this is the number of milliseconds that it takes the robot to drive 1 inch
-//it is set so that if you tell the robot to drive forward 25 units, the robot drives about 25 inches
+                               //it is set so that if you tell the robot to drive forward 25 units, the robot drives about 25 inches
 
 const int turnTime = 8;        //this is the number of milliseconds that it takes to turn the robot 1 degree
-//it is set so that if you tell the robot to turn right 90 units, the robot turns about 90 degrees
+                               //it is set so that if you tell the robot to turn right 90 units, the robot turns about 90 degrees
 
-//Note: these numbers will vary a little bit based on how you mount your motors, the friction of the
-//surface that your driving on, and fluctuations in the power to the motors.
-//You can change the driveTime and turnTime to make them more accurate
+                               //Note: these numbers will vary a little bit based on how you mount your motors, the friction of the
+                               //surface that your driving on, and fluctuations in the power to the motors.
+                               //You can change the driveTime and turnTime to make them more accurate
 
 String botDirection;           //the direction that the robot will drive in (this change which direction the two motors spin in)
 String distance;               //the distance to travel in each direction
@@ -66,7 +66,7 @@ void setup()
 void loop()
 {
   if (digitalRead(7) == LOW)
-  { //if the switch is in the ON position
+  {                                                     //if the switch is in the ON position
     if (Serial.available() > 0)                         //if the user has sent a command to the RedBoard
     {
       botDirection = Serial.readStringUntil(' ');       //read the characters in the command until you reach the first space

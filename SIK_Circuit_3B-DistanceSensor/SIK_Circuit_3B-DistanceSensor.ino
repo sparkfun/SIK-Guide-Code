@@ -78,7 +78,7 @@ float getDistance()
   digitalWrite(trigPin, LOW);
 
   echoTime = pulseIn(echoPin, HIGH);      //use the pulsein command to see how long it takes for the
-  //pulse to bounce back to the sensor
+                                          //pulse to bounce back to the sensor
 
   calculatedDistance = echoTime / 148.0;  //calculate the distance of the object that reflected the pulse (half the bounce time multiplied by the speed of sound)
 
