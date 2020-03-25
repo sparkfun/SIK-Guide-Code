@@ -32,7 +32,9 @@ const char* words[arraySize] = {"moose", "beaver", "bear", "goose", "dog", "cat"
                                 "frog", "alligator", "kangaroo", "hippo", "rabbit"
                                };
 
-int sequence[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}; //start with an array full of 0s
+// the start value in the sequence array must have a value that could never be an index of an array
+// or at least a value outside the range of 0 to the size of the words array - 1; in this case, it can't be between 0 to 24
+int sequence[] = { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1}; //start with an array full of -1's
 
 void setup() {
 
@@ -40,7 +42,7 @@ void setup() {
 
   lcd.begin(16, 2);                       //tell the LCD library the size of the screen
 
-  generateRandomOrder();                  //generate an array of random numbers from 1-25 that will determine which order the words are shown in
+  generateRandomOrder();                  //generate an array of random numbers from 0 to 24 that will determine which order the words are shown in
 
   showStartSequence();                    //print the start sequence text
 
@@ -73,7 +75,7 @@ void loop() {
       }
 
       if (digitalRead(buttonPin) == LOW) {
-        tone(buzzerPin, 272, 1);
+        tone(buzzerPin, 272, 10);                   //emit a short beep when the button is pressed
       }
 
     }                       //exit this loop when the button is pressed
@@ -123,14 +125,14 @@ void generateRandomOrder() {
 
   randomSeed(analogRead(0));            //reset the random seed (Arduino needs this to generate truly random numbers
 
-  for (int i = 0; i < 24; i++) {        //do this until all 25 positions are filled
+  for (int i = 0; i < arraySize; i++) {        //do this until all 25 positions are filled
 
     int currentNumber = 0;              //variable to hold the current number
     boolean match = false;              //does the currentNumber match any of the previous numbers?
 
     //generate random numbers until you've generated one that doesn't match any of the other numbers in the array
     do {
-      currentNumber = random(0, arraySize);            //generate a random number from 1-25
+      currentNumber = random(0, arraySize);            //generate a random number from 0 to 24
       match = false;                            //we haven't checked for matches yet, so start by assuming that it doesn't match
       for (int i = 0; i < arraySize; i++) {            //for all 25 numbers in the array
         if (currentNumber == sequence[i]) {     //does the currentNumber match any of the numbers?
