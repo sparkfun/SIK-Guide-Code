@@ -7,7 +7,7 @@
   This sketch was written by SparkFun Electronics, with lots of help from the Arduino community.
   This code is completely free for any use.
 
-  View circuit diagram and instructions at: https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v40
+  View circuit diagram and instructions at: https://learn.sparkfun.com/tutorials/sparkfun-inventors-kit-experiment-guide---v41
   Download code at: https://github.com/sparkfun/SIK-Guide-Code
 */
 
