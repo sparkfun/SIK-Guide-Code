@@ -77,34 +77,34 @@ void loop()
       Serial.print(" ");
       Serial.println(distance.toInt());
 
-      if (botDirection == "f")                         //if the entered direction is forward
+      if (botDirection == "f")                          //if the entered direction is forward
       {
         rightMotor(200);                                //drive the right wheel forward
-        leftMotor(200);                                 //drive the left wheel forward
+        leftMotor(-200);                                //drive the left wheel backward
         delay(driveTime * distance.toInt());            //drive the motors long enough travel the entered distance
         rightMotor(0);                                  //turn the right motor off
         leftMotor(0);                                   //turn the left motor off
       }
       else if (botDirection == "b")                    //if the entered direction is backward
       {
-        rightMotor(-200);                               //drive the right wheel forward
-        leftMotor(-200);                                //drive the left wheel forward
+        rightMotor(-200);                               //drive the right wheel backward
+        leftMotor(200);                                 //drive the left wheel forward
         delay(driveTime * distance.toInt());            //drive the motors long enough travel the entered distance
         rightMotor(0);                                  //turn the right motor off
         leftMotor(0);                                   //turn the left motor off
       }
       else if (botDirection == "r")                     //if the entered direction is right
       {
-        rightMotor(-200);                               //drive the right wheel forward
-        leftMotor(255);                                 //drive the left wheel forward
+        rightMotor(-200);                               //drive the right wheel backward
+        leftMotor(-255);                                //drive the left wheel backward
         delay(turnTime * distance.toInt());             //drive the motors long enough turn the entered distance
         rightMotor(0);                                  //turn the right motor off
         leftMotor(0);                                   //turn the left motor off
       }
-      else if (botDirection == "l")                   //if the entered direction is left
+      else if (botDirection == "l")                     //if the entered direction is left
       {
         rightMotor(255);                                //drive the right wheel forward
-        leftMotor(-200);                                //drive the left wheel forward
+        leftMotor(200);                                 //drive the left wheel forward
         delay(turnTime * distance.toInt());             //drive the motors long enough turn the entered distance
         rightMotor(0);                                  //turn the right motor off
         leftMotor(0);                                   //turn the left motor off
