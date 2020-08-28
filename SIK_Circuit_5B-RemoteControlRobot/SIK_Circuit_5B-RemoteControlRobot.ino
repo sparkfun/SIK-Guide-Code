@@ -37,6 +37,9 @@ const int turnTime = 8;        //this is the number of milliseconds that it take
                                //surface that your driving on, and fluctuations in the power to the motors.
                                //You can change the driveTime and turnTime to make them more accurate
 
+enum Mirror { LEFT, RIGHT };
+Mirror mirroredWheel = LEFT;    //the wheel that's "flipped" in the mirror-image assembly
+
 String botDirection;           //the direction that the robot will drive in (this change which direction the two motors spin in)
 String distance;               //the distance to travel in each direction
 
@@ -77,7 +80,7 @@ void loop()
       Serial.print(" ");
       Serial.println(distance.toInt());
 
-      if (botDirection == "f")                         //if the entered direction is forward
+      if (botDirection == "f")                          //if the entered direction is forward
       {
         rightMotor(200);                                //drive the right wheel forward
         leftMotor(200);                                 //drive the left wheel forward
@@ -85,26 +88,26 @@ void loop()
         rightMotor(0);                                  //turn the right motor off
         leftMotor(0);                                   //turn the left motor off
       }
-      else if (botDirection == "b")                    //if the entered direction is backward
+      else if (botDirection == "b")                     //if the entered direction is backward
       {
-        rightMotor(-200);                               //drive the right wheel forward
-        leftMotor(-200);                                //drive the left wheel forward
+        rightMotor(-200);                               //drive the right wheel backward
+        leftMotor(-200);                                 //drive the left wheel backward
         delay(driveTime * distance.toInt());            //drive the motors long enough travel the entered distance
         rightMotor(0);                                  //turn the right motor off
         leftMotor(0);                                   //turn the left motor off
       }
       else if (botDirection == "r")                     //if the entered direction is right
       {
-        rightMotor(-200);                               //drive the right wheel forward
+        rightMotor(-200);                               //drive the right wheel backward
         leftMotor(255);                                 //drive the left wheel forward
         delay(turnTime * distance.toInt());             //drive the motors long enough turn the entered distance
         rightMotor(0);                                  //turn the right motor off
         leftMotor(0);                                   //turn the left motor off
       }
-      else if (botDirection == "l")                   //if the entered direction is left
+      else if (botDirection == "l")                     //if the entered direction is left
       {
         rightMotor(255);                                //drive the right wheel forward
-        leftMotor(-200);                                //drive the left wheel forward
+        leftMotor(-200);                                //drive the left wheel backward
         delay(turnTime * distance.toInt());             //drive the motors long enough turn the entered distance
         rightMotor(0);                                  //turn the right motor off
         leftMotor(0);                                   //turn the left motor off
@@ -120,6 +123,10 @@ void loop()
 /********************************************************************************/
 void rightMotor(int motorSpeed)                       //function for driving the right motor
 {
+  if (mirroredWheel == RIGHT) {
+    motorSpeed = -motorSpeed;
+  }
+
   if (motorSpeed > 0)                                 //if the motor should drive forward (positive speed)
   {
     digitalWrite(AIN1, HIGH);                         //set pin 1 to high
@@ -141,6 +148,10 @@ void rightMotor(int motorSpeed)                       //function for driving the
 /********************************************************************************/
 void leftMotor(int motorSpeed)                        //function for driving the left motor
 {
+  if (mirroredWheel == LEFT) {
+    motorSpeed = -motorSpeed;
+  }
+
   if (motorSpeed > 0)                                 //if the motor should drive forward (positive speed)
   {
     digitalWrite(BIN1, HIGH);                         //set pin 1 to high
@@ -158,4 +169,3 @@ void leftMotor(int motorSpeed)                        //function for driving the
   }
   analogWrite(PWMB, abs(motorSpeed));                 //now that the motor direction is set, drive it at the entered speed
 }
-
