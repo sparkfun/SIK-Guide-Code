@@ -87,7 +87,7 @@ void loop()
 
 
 void shiftWrite(int desiredPin, boolean desiredState)
-
+{
 // This function lets you make the shift register outputs
 // HIGH or LOW in exactly the same way that you use digitalWrite().
 
