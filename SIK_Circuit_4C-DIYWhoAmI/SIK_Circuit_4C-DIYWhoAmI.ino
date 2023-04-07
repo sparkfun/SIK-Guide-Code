@@ -153,7 +153,7 @@ void gameOver() {
 
   lcd.setCursor(0, 1);            //move to the bottom row
   lcd.print("Score: ");           //print a label for the score
-  lcd.print(roundNumber);         //print the score (the round number is the same as the score)
+  lcd.print(roundNumber-1);       //print the score (the score is equal to the previous level/round number)
 
   //play the losing fog horn
   tone(buzzerPin, 130, 250);      //E6
